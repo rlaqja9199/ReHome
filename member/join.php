@@ -4,33 +4,77 @@
             <article id="join_contents">
                 <h2>JOIN</h2>
                 <form action="/php/ReHome/process/join_process.php" method="post">
-                    <table>
+                    <div>
+                        <ul>
+                            <li>
+                                <h3><span>*</span>이름</h3>
+                                <input id="nameee" class="joinInput" type="text" name="userName" placeholder="이름을 입력하세요." >
+                                <p class="hideText" >이름을 입력해주세요.</p>
+                            </li>
+                            <li>
+                                <h3><span>*</span>아이디</h3>
+                                <input class="joinInput" type="text" name="userId" placeholder="5~12자의 영문,숫자 사용가능" >
+                                <p class="hideText" >아이디를 입력해주세요.</p>
+                            </li>
+                            <li>
+                                <h3><span>*</span>비밀번호</h3>
+                                <input class="joinInput" type="password" name="userPw" placeholder="8자 이상의 영문,숫자,특수문자 중 2가지 이상 혼합" >
+                                <p class="hideText" >비밀번호를 입력해주세요.</p>
+                            </li>
+                            <li>
+                                <h3><span>*</span>비밀번호 체크</h3>
+                                <input class="joinInput" type="password" name="userPwCh" placeholder="입력하신 비밀번호를 다시 한번 입력해주세요." >
+                                <p class="hideText" >비밀번호 체크를 입력해주세요.</p>
+                            </li>
+                            <li>
+                                <h3><span>*</span>이메일</h3>
+                                <input class="joinInput" type="email" name="userEmail" placeholder="반드시 사용 중이신 메일을 @ 형식으로 입력하세요." >
+                                <p class="hideText" >이메일을 입력해주세요.</p>
+                            </li>
+                            <li>
+                                <h3><span>*</span>휴대폰번호</h3>
+                                <input class="joinInput" type="text" name="userNumber" placeholder="'-'없이 숫자만 입력해주세요." >
+                                <p class="hideText" >휴대폰 번호를 입력해주세요.</p>
+                            </li>
+                            <li>
+                                <h3><span>*</span>주소</h3>
+                                <div id="addrFind">
+                                    <input class="joinInput" type="text" id="sample6_postcode" placeholder="우편번호" name="addr1">
+                                    <input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
+                                    <input class="joinInput" type="text" id="sample6_address" placeholder="주소" name="addr2_1"><br>
+                                    <input class="joinInput" type="text" id="sample6_detailAddress" placeholder="상세주소" name="addr2_2">
+                                    <input class="joinInput" type="text" id="sample6_extraAddress" placeholder="참고항목" name="addr2_3">
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- <table>
                         <tr>
-                            <th>이름</th>
+                            <th><span>*</span>이름</th>
                             <td><input type="text" name="userName"></td>
                         </tr>
                         <tr>
-                            <th>아이디</th>
+                            <th><span>*</span>아이디</th>
                             <td><input type="text" name="userId"></td>
                         </tr>
                         <tr>
-                            <th>비밀번호</th>
+                            <th><span>*</span>비밀번호</th>
                             <td><input type="password" name="userPw"></td>
                         </tr>
                         <tr>
-                            <th>비밀번호 체크</th>
+                            <th><span>*</span>비밀번호 체크</th>
                             <td><input type="password" name="userPwCh"></td>
                         </tr>
                         <tr>
-                            <th>이메일</th>
+                            <th><span>*</span>이메일</th>
                             <td><input type="email" name="userEmail"></td>
                         </tr>
                         <tr>
-                            <th>휴대폰번호</th>
+                            <th><span>*</span>휴대폰번호</th>
                             <td><input type="text" name="userNumber"></td>
                         </tr>
                         <tr>
-                            <th>주소</th>
+                            <th><span>*</span>주소</th>
                             <td id="addrFind">
                                 <input type="text" id="sample6_postcode" placeholder="우편번호" name="addr1">
                                 <input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
@@ -39,7 +83,7 @@
                                 <input type="text" id="sample6_extraAddress" placeholder="참고항목" name="addr2_3">
                             </td>
                         </tr>
-                    </table>
+                    </table> -->
                     <div id="joinBtn">
                         <button type="submit">회원가입</button>
                         <button type="reset">취소</button>

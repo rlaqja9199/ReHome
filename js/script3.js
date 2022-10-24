@@ -12,7 +12,9 @@ const resultElement = document.querySelector('#goods_amount');
 // let number = resultElement.innerText;
 let number = resultElement.value;
 
-
+let sPrice = parseInt(saleValue.value);
+console.log(sPrice)
+totalPrice.innerText =`${(sPrice).toLocaleString("ko-KR")}원`
 function count(type)  {
     
     
@@ -31,15 +33,38 @@ function count(type)  {
     // resultElement.innerText = number;
     resultElement.value = number;
 
-    let sPrice = parseInt(saleValue.value);
+    let sPrice = saleValue.value;
+    
+
+    // //금액 천원단위 추가,제거
+    // let arr = [];
+    // for(let i=0; i<sPrice.length; i++){
+    //     arr.push(sPrice[i]);
+    // }
+    // arr = arr.filter((e)=> e !== ',');
+    // console.log(arr);
+
+
+    // let arrText = "";
+
+    // for(let i=0; i<arr.length; i++){
+    //     arrText = arrText + arr[i]
+    // }
+
+    // console.log(arrText);
+    // console.log(typeof parseInt(arrText));
+    // sPrice = arrText;
+
     // cAmount.value = parseInt(saleValue.value);
 
     cAmount.value = number;
 
     console.log(`cAmount의 밸류는${cAmount.value}`);
+    console.log(`sPrice는${sPrice}`);
+    console.log(`sPrice는${sPrice.length}`);
 
     totalPrice.innerHTML =`${(sPrice*number).toLocaleString("ko-KR")}원`
-    subMoney.value = `${(sPrice*number).toLocaleString("ko-KR")}`;
+    subMoney.value = `${(sPrice*number)}`;
     return cAmount;
 }
 

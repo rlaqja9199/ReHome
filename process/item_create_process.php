@@ -6,12 +6,12 @@
     move_uploaded_file($fileimg['tmp_name'],"C:\Apache24\htdocs\php\ReHome\images/".$fileimg['name']);
     move_uploaded_file($fileimg2['tmp_name'],"C:\Apache24\htdocs\php\ReHome\images/".$fileimg2['name']);
 
+    $conn = mysqli_connect('localhost','root','3693','rehome');     
     // $conn = mysqli_connect('localhost','root','1234','rehome');     
-    $conn = mysqli_connect('localhost','cathkid','rornfl*#3693','cathkid');   
+    // $conn = mysqli_connect('localhost','cathkid','rornfl*#3693','cathkid');   
                             //not null로 준거는 쿼리문에 다 적어줘야 빈값이 안생겨서!! 다 적어줘야함!
     // $query = "insert into bestitem(`name1`,`brand`, `imgsrc`, `price`, `saleprice`, `imgsrc2`,`name2`)
     // values('{$_POST['name1']}','{$_POST['brand']}','{$fileimg['name']}','{$_POST['price']}',{$_POST['saleprice']},'{$fileimg2['name']}','aaa')";
-    
     $query = "insert into bestitem(`name1`,`brand`, `imgsrc`, `price`, `saleprice`, `imgsrc2`,`name2`) values('{$_POST['name1']}','{$_POST['brand']}','{$fileimg['name']}','{$_POST['price']}',{$_POST['saleprice']},'{$fileimg2['name']}','{$_POST['name2']}')";                                                                   
     
     echo $query;           
@@ -21,5 +21,5 @@
     }else {
         echo "게시글 작성이 실패했습니다.";
     }
-    header('Location:../index.php');
+    // header('Location:../index.php');
 ?>

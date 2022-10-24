@@ -1,7 +1,9 @@
 <?php
+    $conn = mysqli_connect('localhost','root','3693','rehome');
     // $conn = mysqli_connect('localhost','root','1234','rehome');
-    $conn = mysqli_connect('localhost','cathkid','rornfl*#3693','cathkid');
-    $query = "delete from cart where id={$_POST['id']}";
+    // $conn = mysqli_connect('localhost','cathkid','rornfl*#3693','cathkid');
+    // $query = "delete from cart where id={$_POST['id']}";
+    $query = "delete from cart where number={$_POST['number']}";
     $result = mysqli_query($conn, $query);
 
     echo $_POST['id'];

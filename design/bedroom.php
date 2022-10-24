@@ -1,6 +1,6 @@
 <?php include_once 'C:\Apache24\htdocs\php\ReHome\include\header.php' ?>
     <section>
-        <p class="innerRoad">HOME > DESIGN > LIVING ROOM</p>
+        <p class="innerRoad">HOME > DESIGN > BED ROOM</p>
         <article>
             <div class="designImg">
                 <img src="/php/ReHome/images/bedroom1.jpg" alt="">

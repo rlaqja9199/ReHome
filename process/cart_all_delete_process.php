@@ -1,7 +1,8 @@
 <?php
     session_start();
+    $conn = mysqli_connect('localhost','root','3693','rehome');
     // $conn = mysqli_connect('localhost','root','1234','rehome');
-    $conn = mysqli_connect('localhost','cathkid','rornfl*#3693','cathkid');
+    // $conn = mysqli_connect('localhost','cathkid','rornfl*#3693','cathkid');
     $query = "delete from cart where userid='{$_SESSION['userId']}'";
     // echo $_POST['userid'];
     isset($_SESSION['userId']);

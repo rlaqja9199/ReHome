@@ -12,3 +12,4 @@ function a(){
 a();
 totalP.innerHTML = `${pTotal}`;
 subP.innerHTML = `${pTotal}`;
+

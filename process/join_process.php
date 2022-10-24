@@ -10,8 +10,9 @@
     $addr2_2 = $_POST['addr2_2'];
     $addr2_3 = $_POST['addr2_3'];
     if( !is_null($userid) ){
+        $conn = mysqli_connect('localhost','root','3693','rehome');
         // $conn = mysqli_connect('localhost','root','1234','rehome');
-        $conn = mysqli_connect('localhost','cathkid','rornfl*#3693','cathkid');
+        // $conn = mysqli_connect('localhost','cathkid','rornfl*#3693','cathkid');
         $query = "select id from member where id='{$userid}'";
         $result = mysqli_query($conn, $query);
         while($row = mysqli_fetch_array($result)){

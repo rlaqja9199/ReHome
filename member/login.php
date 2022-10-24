@@ -1,5 +1,4 @@
 <?php include_once '../include/header.php' ?>
-<?php include_once '../include/header.php' ?>
         <section>
             <p class="innerRoad">HOME > PRODUCT > LOGIN</p>
             <article id="login_contents">

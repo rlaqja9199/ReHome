@@ -26,10 +26,10 @@
                                 <td>판매가격</td>
                                 <td><input type="text" name="saleprice" required></td>
                             </tr>
-                            <tr>
+                            <!-- <tr>
                                 <td>상품코드</td>
                                 <td><input type="text" name="id"></td>
-                            </tr>
+                            </tr> -->
                             <tr>
                                 <td>상세보기</td>
                                 <td><input type="file" name="imgsrc2" required></td>

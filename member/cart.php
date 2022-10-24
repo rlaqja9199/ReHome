@@ -7,8 +7,9 @@
     }
     $userid = $_SESSION['userId'];
     echo $userid;
+    $conn = mysqli_connect('localhost', 'root', '3693', 'rehome');
     // $conn = mysqli_connect('localhost', 'root', '1234', 'rehome');
-    $conn = mysqli_connect('localhost','cathkid','rornfl*#3693','cathkid');
+    // $conn = mysqli_connect('localhost','cathkid','rornfl*#3693','cathkid');
     $query = "select * from cart where userid='$userid'";
     echo $query;
     $result = mysqli_query($conn, $query);
@@ -47,16 +48,19 @@
                                     global $result;
                                     global $row;
                                     while($row = mysqli_fetch_array($result)) {
+                                        $numRow = number_format($row['savedmoney']);
+                                        $numRow2 = number_format($row['price']);
                                         echo "<tr>
                                                 <td><input type='checkbox' class='checkBox' checked/></td>
                                                 <td><a href='/php/ReHome/bestitem_detail.php?id={$row['id']}'>{$row['title']}</a></td>
                                                 <td>{$row['amount']}</td>
-                                                <td>{$row['savedmoney']}</td>
-                                                <td class='priceCheck'>{$row['price']}</td>
+                                                <td>{$numRow}</td>
+                                                <td class='priceCheck'>{$numRow2}</td>
                                                 <td>{$row['delivery']}</td>
                                                 <td> 
                                                 <form action='/php/ReHome/process/cart_delete_process.php' method='post'>                                  
                                                     <input type='hidden' name='id' value='{$row['id']}'>
+                                                    <input type='hidden' name='number' value='{$row['numbers']}'>
                                                     <button type='submit' id='deleteBtn'>삭제</button>
                                                 </form>
                                             </td>

@@ -1,7 +1,8 @@
 <?php include_once 'include/header.php' ?>
 <?php 
+    $conn = mysqli_connect('localhost','root','3693','rehome');   
     // $conn = mysqli_connect('localhost','root','1234','rehome');   
-    $conn = mysqli_connect('localhost','cathkid','rornfl*#3693','cathkid');      
+    // $conn = mysqli_connect('localhost','cathkid','rornfl*#3693','cathkid');      
     $query = "select * from bestitem where id={$_POST['id']}";     
     $result = mysqli_query($conn, $query);
     $row = mysqli_fetch_array($result); 
@@ -37,15 +38,15 @@
                             </tr>
                             <tr>
                                 <td>소비자가격</td>
-                                <td><input type="text" name="price" required value="<?=$row['price']?>"></td>
+                                <td><input type="text" name="price" required value="<?=$row['price']?>" placeholder="xxx,xxx원 형태로 입력해주세요."></td>
                             </tr>
                             <tr>
                                 <td>판매가격</td>
-                                <td><input type="text" name="saleprice" required value="<?=$row['saleprice']?>"></td>
+                                <td><input type="text" name="saleprice" required value="<?=$row['saleprice']?>" placeholder="숫자만 입력해주세요."></td>
                             </tr>
                             <tr>
                                 <td>상품코드</td>
-                                <td><input type="text" name="id" required value="<?=$row['id']?>"></td>
+                                <td><input type="text" name="id" required value="<?=$row['id']?>" disabled></td>
                             </tr>
                             <tr>
                                 <td>상세보기</td>

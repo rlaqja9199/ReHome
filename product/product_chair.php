@@ -1,18 +1,20 @@
 <?php include_once '../include/header.php' ?>
 <?php
     function printList(){
+            $conn = mysqli_connect('localhost','root','3693','rehome');
             // $conn = mysqli_connect('localhost','root','1234','rehome');
-            $conn = mysqli_connect('localhost','cathkid','rornfl*#3693','cathkid');
+            // $conn = mysqli_connect('localhost','cathkid','rornfl*#3693','cathkid');
             $query = "select * from bestitem where category='chair'";
             $result = mysqli_query($conn, $query);
             while($row = mysqli_fetch_array($result)){
+                $numRow = number_format($row['saleprice']);
                 echo "<li><a href='/php/ReHome/bestItem_detail.php?id={$row['id']}'>
                 <div class='hideImg'><img src='/php/ReHome/images/{$row['imgsrc']}'></div>
                 <div class='text'>
                     <h4>{$row['brand']}</h4>
                     <p>{$row['name1']}</p>
                     <p>{$row['name2']}</p>
-                    <p class='price'>{$row['saleprice']}<span>{$row['price']}</span></p>
+                    <p class='price'>{$numRow}<span>{$row['price']}</span></p>
                 </div>
                 </a></li>";
             }

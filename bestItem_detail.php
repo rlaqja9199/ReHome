@@ -1,7 +1,8 @@
 <?php include_once 'include/header.php' ?>
 <?php 
+    $conn = mysqli_connect('localhost','root','3693','rehome');
     // $conn = mysqli_connect('localhost','root','1234','rehome');
-    $conn = mysqli_connect('localhost','cathkid','rornfl*#3693','cathkid');
+    // $conn = mysqli_connect('localhost','cathkid','rornfl*#3693','cathkid');
     $query = "select * from bestitem where id='{$_GET['id']}'"; 
     $result = mysqli_query($conn, $query);
     $row = mysqli_fetch_array($result);
@@ -42,7 +43,7 @@
                                     <input type="text" value="<?=$row['saleprice']?>" id="productPrice">
                                 </li>
                                 <li>
-                                    <p id="totalPrice"><?=$row['saleprice']?>원</p>
+                                    <p id="totalPrice"><?=number_format($row['saleprice'])?>원</p>
                                 </li>
                                 <li>
                                     <!-- <form action="/php/ReHome/item_edit.php" method="post"> -->
@@ -77,10 +78,19 @@
                                 <input type="hidden" name="cPrice" id="cPrice" value="<?=$row['saleprice']?>">
                                 <input type="hidden" name="cDelivery" value="<?=$row['delivery']?>">
                                 <input type="hidden" name="cAmount" value="1" id="cAmount">
-
-                                <button type="submit" style="cursor: pointer;" id="cartBtn">장바구니</button>
+                            
                             </form>
-                            <a href="#"><button style="cursor: pointer;">바로 구매</button></a>
+                            <form action="/php/ReHome/process/cart_create_process2.php" method="post">
+                                <!-- <input type="text"> -->
+                                <input type="hidden" name="cTitle" value="<?=$row['name1']?>">
+                                <input type="hidden" name="id" value="<?=$row['id']?>">
+                                <input type="hidden" name="userId" value="<?=$_SESSION['userId']?>">
+                                <input type="hidden" name="cSavedmoney" value="<?=$row['savedmoney']?>">
+                                <input type="hidden" name="cPrice" id="cPrice" value="<?=$row['saleprice']?>">
+                                <input type="hidden" name="cDelivery" value="<?=$row['delivery']?>">
+                                <input type="hidden" name="cAmount" value="1" id="cAmount">
+                           
+                            </form>
                         </div>
                         <div id="buttons2">
                             <form action="/php/ReHome/item_edit.php" method="post">
@@ -152,7 +162,8 @@
             </table>
             <article id="review_contents">
             <?php
-                $conn2 = mysqli_connect('localhost','root','1234','rehome');
+                $conn2 = mysqli_connect('localhost','root','3693','rehome');
+                // $conn2 = mysqli_connect('localhost','root','1234','rehome');
                 $query2 = "select * from review where itemid = {$row['id']};";
                 $result2 = mysqli_query($conn2,$query2);
             ?>
@@ -223,5 +234,14 @@
         itemId.value = qsId;
     };
     
+    // //장바구니&바로구매 컨펌
+    // function cartConfirm(){
+    //     window.confirm("장바구니로 바로 가시겠습니까?");
+    // }
+    function cartLogin(){
+        alert('로그인 후 이용해주세요.');
+        location.replace('/php/ReHome/member/login.php');
+    }
+
 </script>
 <?php include_once 'include/footer.php' ?>

@@ -2,8 +2,9 @@
     session_start();
     $userid = $_POST['userId'];
     $userpw = $_POST['userPw'];
+    $conn = mysqli_connect('localhost','root','3693','rehome');
     // $conn = mysqli_connect('localhost','root','1234','rehome');
-    $conn = mysqli_connect('localhost','cathkid','rornfl*#3693','cathkid');
+    // $conn = mysqli_connect('localhost','cathkid','rornfl*#3693','cathkid');
     $query = "select * from member where id='{$userid}'";
     $result = mysqli_query($conn, $query);
 
@@ -24,7 +25,7 @@
         ?>
         <script>
             alert("비밀번호가 맞지 않습니다.");
-            location.replace("/php/ReHome/index.php");      
+            location.replace("/php/ReHome/member/login.php");      
         </script>
         <?php
         }
@@ -33,7 +34,7 @@
     ?>
     <script>
             alert("아이디가 맞지 않습니다.");       
-            location.replace("/php/ReHome/index.php");      
+            location.replace("/php/ReHome/member/login.php");      
         </script>
     <?php
     }
