@@ -78,7 +78,13 @@
                                 <input type="hidden" name="cPrice" id="cPrice" value="<?=$row['saleprice']?>">
                                 <input type="hidden" name="cDelivery" value="<?=$row['delivery']?>">
                                 <input type="hidden" name="cAmount" value="1" id="cAmount">
-                            
+                                <?php
+                                    if(session_id()){
+                                        echo "<button type='submit' style='cursor: pointer;' id='cartBtn'>장바구니</button>";
+                                    } else {
+                                        echo "<button type='button' style='cursor: pointer;' id='cartBtn' onclick={cartLogin()}>장바구니</button>";
+                                    };
+                                ?>
                             </form>
                             <form action="/php/ReHome/process/cart_create_process2.php" method="post">
                                 <!-- <input type="text"> -->
@@ -89,7 +95,13 @@
                                 <input type="hidden" name="cPrice" id="cPrice" value="<?=$row['saleprice']?>">
                                 <input type="hidden" name="cDelivery" value="<?=$row['delivery']?>">
                                 <input type="hidden" name="cAmount" value="1" id="cAmount">
-                           
+                                <?php
+                                    if(session_id()){
+                                        echo "<button type='submit' style='cursor: pointer;' id='buyBtn'>바로 구매</button>";
+                                    } else {
+                                        echo "<button type='button' style='cursor: pointer;' id='buyBtn' onclick={cartLogin()}>바로 구매</button>";
+                                    };
+                                ?>
                             </form>
                         </div>
                         <div id="buttons2">
