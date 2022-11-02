@@ -9,7 +9,6 @@ for(let i=0; i<joinInput.length; i++){
         if(hideText[i]){
             hideText[i].style.opacity = "1"
             hideText[i].style.transition = "0.3s"
-            
         }
     });
     joinInput[i].addEventListener("blur",(e)=>{

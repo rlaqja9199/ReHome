@@ -12,7 +12,7 @@
                             //not null로 준거는 쿼리문에 다 적어줘야 빈값이 안생겨서!! 다 적어줘야함!
     // $query = "insert into bestitem(`name1`,`brand`, `imgsrc`, `price`, `saleprice`, `imgsrc2`,`name2`)
     // values('{$_POST['name1']}','{$_POST['brand']}','{$fileimg['name']}','{$_POST['price']}',{$_POST['saleprice']},'{$fileimg2['name']}','aaa')";
-    $query = "insert into bestitem(`name1`,`brand`, `imgsrc`, `price`, `saleprice`, `imgsrc2`,`name2`) values('{$_POST['name1']}','{$_POST['brand']}','{$fileimg['name']}','{$_POST['price']}',{$_POST['saleprice']},'{$fileimg2['name']}','{$_POST['name2']}')";                                                                   
+    $query = "insert into bestitem(`name1`,`brand`, `imgsrc`, `price`, `saleprice`, `imgsrc2`,`name2`,`category`) values('{$_POST['name1']}','{$_POST['brand']}','{$fileimg['name']}','{$_POST['price']}',{$_POST['saleprice']},'{$fileimg2['name']}','{$_POST['name2']}','{$_POST['category']}')";                                                                   
     
     echo $query;           
     $result = mysqli_query($conn, $query);

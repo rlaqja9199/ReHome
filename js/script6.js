@@ -6,3 +6,25 @@ cartAlert.addEventListener('click',()=>{
 });
 
 
+// //모바일 메뉴
+// const navAbout = document.getElementById("navAbout");
+// const navProduct = document.getElementById("navProduct");
+// const navInterior = document.getElementById("navInterior");
+
+// const onClickNav = (e)=>{
+//     const innerText = e.target.innerText;
+//     if(innerText === "ABOUT"){
+//         navAbout.style.display = "block";
+//         navProduct.style.display = "none";
+//         navInterior.style.display = "none";
+//     }else if(innerText === "PRODUCT"){
+//         navAbout.style.display = "none";
+//         navProduct.style.display = "block";
+//         navInterior.style.display = "none";
+//     }else if(innerText === "INTERIOR DESIGN"){
+//         navAbout.style.display = "none";
+//         navProduct.style.display = "none";
+//         navInterior.style.display = "block";
+//     }
+// }
+// https://velog.io/@qeiqiem/JS-onclick-...-Uncaught-TypeError-Cannot-read-properties-of-undefined-reading-target

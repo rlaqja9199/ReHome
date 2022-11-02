@@ -1,4 +1,5 @@
-<?php 
+<?php
+    ob_start();
     session_start();
 ?>
 <?php 
@@ -7,6 +8,7 @@
 // https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=rorean&logNo=221543867895    : [mysql] ORDER BY IN() 으로 정렬
 $arr = [];
 function printList3(){
+    // var_dump($_SESSION);     //SESSION확인하기
     // setcookie('good',1,time()+86400);
     global $arr;
     $goodsNo = $_GET['id'];
@@ -18,8 +20,10 @@ function printList3(){
             }
         // };
     }else{
+        // error_reporting(E_ALL);
+        // ini_set( "display_errors", 1 );
         setcookie('goods_view',$goodsNo,time()+86400,"/");
-        echo $goodsNo;
+        // echo $goodsNo;
     };
     // for($i=0; $i<=sizeof($temp);$i++){
     //     echo $temp[$i]."<br/>";
@@ -27,7 +31,6 @@ function printList3(){
     // echo $_COOKIE['goods_view'];
     // echo "temp는".$temp;
     // var_dump($temp);
-    
 
     // setcookie("goods_view","4",time() + 86400,"/");
     // setcookie("goods_view", $_GET['id'],time() + 86400,"/");
@@ -95,7 +98,7 @@ function printList3(){
             }
         // }    
         return $arr;
-    }
+    };
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -104,15 +107,20 @@ function printList3(){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ReHome</title>
+    <link rel="icon" href="/php/ReHome/favicon.ico" type="image/png" />
+    <!-- <link rel="icon" type="image/png" href="<?php echo G5_URL ?>/favicon/favicon-32x32.png" sizes="32x32" /> -->
+    <link rel="shortcut icon" href="/php/ReHome/favicon.ico" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/php/ReHome/css/reset.css">
-    <link rel="stylesheet" href="/php/ReHome/css/style2.css">
+    <link rel="stylesheet" href="/php/ReHome/css/style4.css">
+    <link rel="stylesheet" href="/php/ReHome/css/style5.css">
     <script defer src="/php/ReHome/js/script1.js"></script>
     <script defer src="/php/ReHome/js/script2.js"></script>
     <script defer src="/php/ReHome/js/script3.js"></script>
     <script defer src="/php/ReHome/js/script4.js"></script>
     <script defer src="/php/ReHome/js/script5.js"></script>
     <script defer src="/php/ReHome/js/script6.js"></script>
+    <!-- <script defer src="/php/ReHome/js/script7.js"></script> -->
 </head>
 <body>
     <!-- 로딩화면 -->
@@ -144,7 +152,91 @@ function printList3(){
                             <li><a href='/php/ReHome/member/login.php' id='cartAlert'>CART</a></li>";
                         };
                     ?>         
+                    <form action="/php/ReHome/search/search.php" method="post">
+                        <div class='searchDiv'>
+                            <input type='text' name='searchValue'>
+                            <button class='searchBtn'><img src='/php/ReHome/images/search-icon.png' alt=''></button>
+                        </div>
+                    </form>
                 </ul>
+                <div class="menu">
+                    <div class="burgerTab">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div class="mobileMenu">
+                        <div class="closeBtn">
+                            <div></div>
+                            <div></div>
+                        </div>
+                        <form action="/php/ReHome/search/search.php" method="post">
+                            <div class='searchInput'>
+                                <input type='text' name='searchValue'>
+                                <button class='searchBtn'><img src='/php/ReHome/images/search-icon.png' alt=''></button>
+                            </div>
+                        </form>
+                        <div class="logId">
+                            <ul>
+                                <!-- isset이 여러개 적으면 '최근 본 상품'의 cookie가 형성 안돼서..! 하나로 다 넣어줘야함! --> 
+                                <?php
+                                    if(isset($_SESSION['userId'])){
+                                        if($_SESSION['userId'] == "admin"){
+                                            echo "<li><span>{$_SESSION['userId']}님 환영합니다!</span></li>
+                                            <li><a href='/php/ReHome/process/logout_process.php'>LOGOUT</a></li>
+                                            <li><a href='/php/ReHome/item_create.php'>REGISTER</a></li>
+                                            <li><a href='/php/ReHome/member/cart.php'>CART</a></li>";
+                                        }else{
+                                            echo "<li><span>{$_SESSION['userId']}님 환영합니다!</span></li>
+                                            <li><a href='/php/ReHome/process/logout_process.php'>LOGOUT</a></li>
+                                            <li><a href='/php/ReHome/member/cart.php'>CART</a></li>";
+                                        }
+                                    }else{
+                                        echo "<li><a href='/php/ReHome/member/login.php'>LOGIN</a></li>
+                                        <li><a href='/php/ReHome/member/join.php'>JOIN</a></li>
+                                        <li><a href='/php/ReHome/member/login.php' id='cartAlert'>CART</a></li>";
+                                    };
+                                ?>        
+                            </ul>
+                        </div>
+                        <div class="navDiv">
+                            <div>
+                                <ul class="mobileNav">
+                                    <li onclick={onClickNav(event)}>ABOUT</li>
+                                    <li onclick={onClickNav(event)}>PRODUCT</li>
+                                    <li onclick={onClickNav(event)}>INTERIOR<br/>DESIGN</li>
+                                    <li><a href="/php/ReHome/etc/event.php">EVENT</a></li>
+                                    <li><a href="/php/ReHome/etc/csCenter.php">CS CENTER</a></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <ul class="navList">
+                                    <li id="navAbout">
+                                        <p><a href="/php/ReHome/about/about_greetings.php">인삿말</a></p>
+                                        <p><a href="/php/ReHome/about/about_brandStory.php">브랜드소개</a></p>
+                                        <p></p>
+                                        <p></p>
+                                        <p></p>
+                                    </li>
+                                    <li id="navProduct">
+                                        <p><a href="/php/ReHome/product/product_table.php">TABLE</a></p>
+                                        <p><a href="/php/ReHome/product/product_chair.php">CHAIR</a></p>
+                                        <p><a href="/php/ReHome/product/product_bed.php">BED</a></p>
+                                        <p></p>
+                                        <p></p>
+                                    </li>
+                                    <li id="navInterior">
+                                        <p><a href="/php/ReHome/design/livingroom.php">Living Room</a></p>
+                                        <p><a href="/php/ReHome/design/bedroom.php">Bed Room</a></p>
+                                        <p><a href="/php/ReHome/design/kitchen.php">Kitchen</a></p>
+                                        <p></p>
+                                        <p></p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </header>
         <main>
@@ -177,7 +269,7 @@ function printList3(){
                             <ul class="hideMenu">
                                 <li><a href="/php/ReHome/design/livingroom.php">Living Room</a></li>
                                 <li><a href="/php/ReHome/design/bedroom.php">Bed Room</a></li>
-                                <li><a href="/php/ReHome/design/kitchen.php">kitchen</a></li>
+                                <li><a href="/php/ReHome/design/kitchen.php">Kitchen</a></li>
                             </ul>
                         </li>
                         <li class="menuList"><h3><a href="/php/ReHome/etc/event.php">EVENT</a></h3></li>
@@ -195,3 +287,30 @@ function printList3(){
                     <button id="pageDown" style="font-size:24px"><i class="fa fa-angle-double-down"></i></button>
                 </div>
             </aside>
+
+
+<script>
+    //모바일 메뉴
+const navAbout = document.getElementById("navAbout");
+const navProduct = document.getElementById("navProduct");
+const navInterior = document.getElementById("navInterior");
+
+const onClickNav = (e)=>{
+    console.log(e);
+    const innerText = e.target.innerHTML;
+    console.log(innerText);
+    if(innerText === "ABOUT"){
+        navAbout.style.display = "flex";
+        navProduct.style.display = "none";
+        navInterior.style.display = "none";
+    }else if(innerText === "PRODUCT"){
+        navAbout.style.display = "none";
+        navProduct.style.display = "flex";
+        navInterior.style.display = "none";
+    }else if(innerText === "INTERIOR<br>DESIGN"){
+        navAbout.style.display = "none";
+        navProduct.style.display = "none";
+        navInterior.style.display = "flex";
+    }
+}
+</script>

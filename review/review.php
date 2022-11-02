@@ -8,7 +8,7 @@
 
 ?>
             <section>
-                <article id="review_contents">
+                <article id="review_contents"> 
                 <p class="innerRoad">HOME > REVIEW</p>
                     <div id="review">
                         <h3>Review 작성하기</h3>
@@ -17,6 +17,7 @@
                             <ul id="reviewBtns">
                                 <li>
                                     <input type="file" name="reviewimg" value="reviewimg" required style="position:absolute; opacity:0;">
+                                    <input type="hidden" name="userid" value="<?=$_SESSION['userId']?>">
                                     <label id="photofile">사진추가</label>
                                 </li>
                                 <li>
@@ -43,16 +44,17 @@
                                 while($row = mysqli_fetch_array($result)) {
                                     echo "<ul>
                                             <li>{$row['id']}</li>
+                                            <li>{$row['userid']}</li>
                                             <li><span>{$row['reviewstar']}</span></li>
                                             <li>{$row['reviewdesc']}</li>
                                             <li><img src='/php/ReHome/images/{$row['reviewimg']}'></li>
                                             <li>
                                                 <form action='/php/ReHome/review/review_delete_process.php' method='post'>
-                                                <input type='hidden' name='id' value='{$row['id']}'>
-                                                <button type='submit'>X</button>
+                                                    <input type='hidden' name='id' value='{$row['id']}'>
+                                                    <button type='submit'>X</button>
                                                 </form>
-                                                </li>
-                                                </ul>";
+                                            </li>
+                                        </ul>";
                                 }
                             }
                             printList()

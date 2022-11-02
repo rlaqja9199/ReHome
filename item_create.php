@@ -39,6 +39,19 @@
                                 <td><input type="text" name="name2" required ></td>
                             </tr>
                             <tr>
+                                <td>카테고리</td>
+                                <td class="categoryInput">
+                                    <div>
+                                        best_item<input type="radio" name="category" required value="bestItem">
+                                        new<input type="radio" name="category" required value="new" >
+                                        sale<input type="radio" name="category" required value="sale" >
+                                        table<input type="radio" name="category" required value="table" >
+                                        chair<input type="radio" name="category" required value="chair" >
+                                        bed<input type="radio" name="category" required value="bed" >
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
                                 <td colspan="2">
                                     <button type="submit">상품등록</button>
                                     <button type="reset">취소</button>

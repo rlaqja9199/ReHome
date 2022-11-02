@@ -47,6 +47,7 @@
     name2 = '{$_POST['name2']}',
     imgsrc = '{$imgsrc}',             
     brand = '{$_POST['brand']}',
+    category = '{$_POST['category']}',
     price = '{$_POST['price']}',
     saleprice = {$saleP},
     id = {$_POST['id']},

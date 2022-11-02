@@ -17,7 +17,10 @@
                         <table>
                             <tr>
                                 <td>상품명</td>
-                                <td><input type="text" name="name1" required value="<?=$row['name1']?>"></td>
+                                <td>
+                                    <input type="text" name="name1" required value="<?=$row['name1']?>">
+                                    <input type="hidden" name="id" value="<?=$row['id']?>">
+                                </td>
                             </tr>
                             <tr>
                                 <td>상품명2</td>
@@ -26,6 +29,20 @@
                             <tr>
                                 <td>브랜드</td>
                                 <td><input type="text" name="brand" required value="<?=$row['brand']?>"></td>
+                            </tr>
+                            <tr>
+                                <td>카테고리</td>
+                                <td class="categoryInput">
+                                    <div>
+                                        <input type="hidden" value="<?=$row['category']?>" id="categories">
+                                        best_item<input type="radio" name="category" required value="bestItem" class="cateChecked">
+                                        new<input type="radio" name="category" required value="new" class="cateChecked" >
+                                        sale<input type="radio" name="category" required value="sale" class="cateChecked" >
+                                        table<input type="radio" name="category" required value="table" class="cateChecked" >
+                                        chair<input type="radio" name="category" required value="chair" class="cateChecked" >
+                                        bed<input type="radio" name="category" required value="bed" class="cateChecked" >
+                                    </div>
+                                </td>
                             </tr>
                             <tr>
                                 <td>이미지</td>
@@ -86,6 +103,18 @@
                 document.querySelector('#imglabel2').innerHTML = valArr2[valArr2.length - 1];
             }
         }
+
+
+        //카테고리 input checked
+        const categories = document.querySelector('#categories');
+        const cateChecked = document.querySelectorAll('.cateChecked');
+        for(let i=0; i<cateChecked.length; i++){
+            if(categories.value === cateChecked[i].value){
+                cateChecked[i].checked = true;
+            }
+        }
+
+
     </script>
     <?php 
     echo $row; 

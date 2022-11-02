@@ -10,6 +10,7 @@
     $query3 = "select id from member;";
     $result3 = mysqli_query($conn,$query3);
     $row3 = mysqli_fetch_array($result3);
+    date_default_timezone_set('Asia/Seoul');
 ?>
 <section>
     <div class="btm_bar">
@@ -79,7 +80,7 @@
                                 <input type="hidden" name="cDelivery" value="<?=$row['delivery']?>">
                                 <input type="hidden" name="cAmount" value="1" id="cAmount">
                                 <?php
-                                    if(session_id()){
+                                    if(isset($_SESSION['userId'])){
                                         echo "<button type='submit' style='cursor: pointer;' id='cartBtn'>장바구니</button>";
                                     } else {
                                         echo "<button type='button' style='cursor: pointer;' id='cartBtn' onclick={cartLogin()}>장바구니</button>";
@@ -96,7 +97,7 @@
                                 <input type="hidden" name="cDelivery" value="<?=$row['delivery']?>">
                                 <input type="hidden" name="cAmount" value="1" id="cAmount">
                                 <?php
-                                    if(session_id()){
+                                    if(isset($_SESSION['userId'])){
                                         echo "<button type='submit' style='cursor: pointer;' id='buyBtn'>바로 구매</button>";
                                     } else {
                                         echo "<button type='button' style='cursor: pointer;' id='buyBtn' onclick={cartLogin()}>바로 구매</button>";
@@ -105,14 +106,20 @@
                             </form>
                         </div>
                         <div id="buttons2">
-                            <form action="/php/ReHome/item_edit.php" method="post">
-                                <input type="hidden" value="<?=$_GET['id']?>" name="id">
-                                <button type="submit" style="cursor: pointer;">수정</button>
-                            </form>
-                            <form action="/php/ReHome/process/item_delete_process.php" method="post">
-                                <input type="hidden" value="<?=$_GET['id']?>" name="id">
-                                <button type="submit" style="cursor: pointer;">삭제</button>
-                            </form>
+                            <?php 
+                                if(isset($_SESSION['userId'])){
+                                    if($_SESSION['userId'] == "admin"){
+                                        echo "<form action='/php/ReHome/item_edit.php' method='post'>
+                                            <input type='hidden' value={$_GET['id']} name='id'>
+                                            <button type='submit' style='cursor: pointer;' class='editBtn'>수정</button>
+                                        </form>
+                                        <form action='/php/ReHome/process/item_delete_process.php' method='post'>
+                                            <input type='hidden' value={$_GET['id']} name='id'>
+                                            <button type='submit' style='cursor: pointer;' class='delBtn'>삭제</button>
+                                        </form>";
+                                    };
+                                };
+                            ?>
                         </div>
                     </td>
                 </tr>
@@ -176,7 +183,7 @@
             <?php
                 $conn2 = mysqli_connect('localhost','root','3693','rehome');
                 // $conn2 = mysqli_connect('localhost','root','1234','rehome');
-                $query2 = "select * from review where itemid = {$row['id']};";
+                $query2 = "select * from review where itemid = {$row['id']} order by id desc;";
                 $result2 = mysqli_query($conn2,$query2);
             ?>
                 <div id="review">
@@ -184,13 +191,15 @@
                     <form action="/php/ReHome/review/review_process.php" method="post" enctype="multipart/form-data">
                         <textarea name="reviewdesc" id="reviewdesc" cols="30" rows="10" placeholder="상품후기 작성하기"></textarea>
                         <ul id="reviewBtns">
-                            <li>
-                                <input type="file" name="reviewimg" value="reviewimg" required style="position:absolute; opacity:0;">
+                            <li class="reviewPhoto">
+                                <input onchange={fileOnChange()} type="file" name="reviewimg" value="reviewimg" id="reviewFile" required style="position:absolute; opacity:0;">
+                                <input type="hidden" name="userid" value="<?=$_SESSION['userId']?>">
+                                <input type="hidden" name="date" value="<?=date("Y-m-d H:i")?>">
                                 <label id="photofile">사진추가</label>
                             </li>
                             <li>
                                 <select name="reviewstar" id="reviewstar">
-                                    <option value="★★★★★">★★★★★</option>
+                                    <option value="★★★★★" selected>★★★★★</option>
                                     <option value="★★★★">★★★★</option>
                                     <option value="★★★">★★★</option>
                                     <option value="★★">★★</option>
@@ -199,7 +208,14 @@
                             </li>
                             <li>
                                 <input type="hidden" name="id" value="<?=$row['id']?>">
-                                <button id="reviewBtn" type="submit">리뷰등록</button>
+                                <?php
+                                    if(isset($_SESSION['userId'])){
+                                        echo "<button id='reviewBtn' type='submit'>리뷰등록</button>";
+                                    } else {
+                                        echo "<button type='button' style='cursor: pointer;' id='reviewBtn' onclick={cartLogin()}>리뷰등록</button>";
+                                    };
+                                ?>
+                                <!-- <button id="reviewBtn" type="submit">리뷰등록</button> -->
                             </li>
                         </ul>
                     </form>
@@ -210,19 +226,30 @@
                         function printList() {
                             global $result2;
                             while($row2 = mysqli_fetch_array($result2)) {
-                                echo "<ul>
-                                        <li>{$row2['id']}</li>
-                                        <li><span>{$row2['reviewstar']}</span></li>
-                                        <li>{$row2['reviewdesc']}</li>
-                                        <li><img src='/php/ReHome/images/{$row2['reviewimg']}'></li>
-                                        <li>
-                                            <form action='/php/ReHome/review/review_delete_process.php' method='post'>                                  
-                                            <input type='hidden' name='id' value='{$row2['id']}'>
-                                            <input type='hidden' id='itemId' name='itemId' value=''>
-                                            <button id='delReview' type='submit'>X</button>
-                                            </form>
-                                        </li>
-                                    </ul>";
+                                if($_SESSION['userId'] == $row2['userid'] || $_SESSION['userId'] == "admin"){
+                                    echo "<ul>
+                                            <li>{$row2['id']}</li>
+                                            <li class='reviewId'>{$row2['userid']}<span>{$row2['date']}</span></li>
+                                            <li><span>{$row2['reviewstar']}</span></li>
+                                            <li>{$row2['reviewdesc']}</li>
+                                            <li><img src='/php/ReHome/images/{$row2['reviewimg']}'></li>
+                                            <li>
+                                                <form action='/php/ReHome/review/review_delete_process.php' method='post'>                                  
+                                                <input type='hidden' name='id' value='{$row2['id']}'>
+                                                <input type='hidden' id='itemId' name='itemId' value=''>
+                                                <button id='delReview' type='submit' onclick={qsIdSend()}>X</button>
+                                                </form>
+                                            </li>
+                                        </ul>";
+                                    }else {
+                                        echo "<ul>
+                                                <li>{$row2['id']}</li>
+                                                <li class='reviewId'>{$row2['userid']}<span>{$row2['date']}</span></li>
+                                                <li><span>{$row2['reviewstar']}</span></li>
+                                                <li>{$row2['reviewdesc']}</li>
+                                                <li><img src='/php/ReHome/images/{$row2['reviewimg']}'></li>
+                                            </ul>";
+                                }
                             }
                         }
                         printList();
@@ -234,11 +261,11 @@
 </section>
 </main>
 <script>
-    //리뷰 삭제하기 -> 아이템아이디로 가게
+    //*리뷰 삭제하기 -> 아이템아이디로 가게
     const delReview = document.querySelector("#delReview");
-    delReview.addEventListener('click',()=>{
-        qsIdSend();
-    });
+    // delReview.addEventListener('click',()=>{     //addEventListener 오류뜸  --> onClick으로 바로 넣어주기
+    //     qsIdSend();
+    // })
 
     function qsIdSend(){
         const qsId = window.location.search;
@@ -253,7 +280,19 @@
     function cartLogin(){
         alert('로그인 후 이용해주세요.');
         location.replace('/php/ReHome/member/login.php');
-    }
+    };
 
+    //*리뷰 - '사진추가' label 글자수정
+    const fileOnChange = ()=>{
+        const reviewFile = document.querySelector("#reviewFile");
+        const photoFile = document.querySelector("#photofile");
+        // console.log(reviewFile.files);
+        console.log(reviewFile.files[0].name);
+            if(reviewFile.files[0].name){
+                photoFile.innerHTML = reviewFile.files[0].name;
+            }else{
+                photoFile.innerHTML = "사진추가";
+            };
+    };
 </script>
 <?php include_once 'include/footer.php' ?>
