@@ -8,8 +8,8 @@
             $result = mysqli_query($conn, $query);
             while($row = mysqli_fetch_array($result)){
                 $numRow = number_format($row['saleprice']);
-                echo "<li><a href='/php/ReHome/bestItem_detail.php?id={$row['id']}'>
-                <div class='hideImg'><img src='/php/ReHome/images/{$row['imgsrc']}'></div>
+                echo "<li><a href='http://cathkid.dothome.co.kr/ReHome/bestItem_detail.php?id={$row['id']}'>
+                <div class='hideImg'><img src='http://cathkid.dothome.co.kr/ReHome/images/{$row['imgsrc']}'></div>
                 <div class='text'>
                     <h4 class='h4Category'>{$row['brand']}
                     <input type='hidden' class='getCategory' name='category' value={$row['category']}></h4>
@@ -57,7 +57,7 @@
                         const bestCategory = document.createElement('span');
                         // h4Category.appendChild(bestCategory);
                         // bestCategory.className = 'orderEx';
-                        h4Category[i].innerHTML = "ReHome <span class='orderEx'><img src='/php/ReHome/images/orderExploding.png'></span>";
+                        h4Category[i].innerHTML = "ReHome <span class='orderEx'><img src='http://cathkid.dothome.co.kr/ReHome/images/orderExploding.png'></span>";
                     }
                 }
             }

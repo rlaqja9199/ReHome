@@ -1,15 +1,15 @@
 <?php include_once '../include/header.php' ?>
 <?php
     function printList(){
-            $conn = mysqli_connect('localhost','root','3693','rehome');
+            // $conn = mysqli_connect('localhost','root','3693','rehome');
             // $conn = mysqli_connect('localhost','root','1234','rehome');
-            // $conn = mysqli_connect('localhost','cathkid','rornfl*#3693','cathkid');
+            $conn = mysqli_connect('localhost','cathkid','dothome##3693','cathkid');
             $query = "select * from bestitem where category='bestItem'";
             $result = mysqli_query($conn, $query);
             while($row = mysqli_fetch_array($result)){
                 $numRow = number_format($row['saleprice']);
-                echo "<li><a href='/php/ReHome/bestItem_detail.php?id={$row['id']}'>
-                <div class='hideImg'><img src='/php/ReHome/images/{$row['imgsrc']}'></div>
+                echo "<li><a href='http://cathkid.dothome.co.kr/ReHome/bestItem_detail.php?id={$row['id']}'>
+                <div class='hideImg'><img src='http://cathkid.dothome.co.kr/ReHome/images/{$row['imgsrc']}'></div>
                 <div class='eventText'>
                     <p>{$row['name1']}</p>
                     <p class='price'>{$numRow}원<span>{$row['price']}</span></p>
@@ -28,7 +28,7 @@
                         </div>
                     </div>
                     <div>
-                        <h1><img src="/php/ReHome/images/bLogo.png" alt="리홈로고"></h1>
+                        <h1><img src="http://cathkid.dothome.co.kr/ReHome/images/bLogo.png" alt="리홈로고"></h1>
                         <div>
                             <h3>한정 수량 특가 이벤트</h3>
                             <h2>리홈타임</h2>

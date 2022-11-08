@@ -17,7 +17,7 @@
         ?>
         <script>
             alert("로그인 되었습니다.");
-            location.replace("/php/ReHome/index.php");       
+            location.replace("http://cathkid.dothome.co.kr/ReHome/index.php");       
         </script>
         <?php
             }
@@ -25,7 +25,7 @@
         ?>
         <script>
             alert("비밀번호가 맞지 않습니다.");
-            location.replace("/php/ReHome/member/login.php");      
+            location.replace("http://cathkid.dothome.co.kr/ReHome/member/login.php");      
         </script>
         <?php
         }
@@ -34,7 +34,7 @@
     ?>
     <script>
             alert("아이디가 맞지 않습니다.");       
-            location.replace("/php/ReHome/member/login.php");      
+            location.replace("http://cathkid.dothome.co.kr/ReHome/member/login.php");      
         </script>
     <?php
     }

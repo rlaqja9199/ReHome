@@ -3,7 +3,7 @@
             <p class="innerRoad">HOME > PRODUCT > JOIN</p>
             <article id="join_contents">
                 <h2>JOIN</h2>
-                <form action="/php/ReHome/process/join_process.php" method="post">
+                <form action="http://cathkid.dothome.co.kr/ReHome/process/join_process.php" method="post">
                     <div>
                         <ul>
                             <li>

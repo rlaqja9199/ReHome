@@ -12,7 +12,7 @@
                 <p class="innerRoad">HOME > REVIEW</p>
                     <div id="review">
                         <h3>Review 작성하기</h3>
-                        <form action="/php/ReHome/review/review_process.php" method="post" enctype="multipart/form-data">
+                        <form action="http://cathkid.dothome.co.kr/ReHome/review/review_process.php" method="post" enctype="multipart/form-data">
                             <textarea name="reviewdesc" id="reviewdesc" cols="30" rows="10" placeholder="상품후기 작성하기"></textarea>
                             <ul id="reviewBtns">
                                 <li>
@@ -47,9 +47,9 @@
                                             <li>{$row['userid']}</li>
                                             <li><span>{$row['reviewstar']}</span></li>
                                             <li>{$row['reviewdesc']}</li>
-                                            <li><img src='/php/ReHome/images/{$row['reviewimg']}'></li>
+                                            <li><img src='http://cathkid.dothome.co.kr/ReHome/images/{$row['reviewimg']}'></li>
                                             <li>
-                                                <form action='/php/ReHome/review/review_delete_process.php' method='post'>
+                                                <form action='http://cathkid.dothome.co.kr/ReHome/review/review_delete_process.php' method='post'>
                                                     <input type='hidden' name='id' value='{$row['id']}'>
                                                     <button type='submit'>X</button>
                                                 </form>

@@ -35,7 +35,7 @@
         if ( $wp == 1 ) {
             echo "<p>비밀번호가 일치하지 않습니다.</p>";
         }
-        header('Location:/php/ReHome/index.php');
+        header('Location:http://cathkid.dothome.co.kr/ReHome/index.php');
     }
 
 

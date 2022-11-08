@@ -15,7 +15,8 @@
         }
         // echo $fileimg['name'];
         // echo $fileimg['tmp_name'];
-        $re2 = move_uploaded_file("{$fileimg['tmp_name']}",'C:\Apache24\htdocs\php\ReHome\images/'."{$fileimg['name']}");
+        $re2 = move_uploaded_file("{$fileimg['tmp_name']}",'http://cathkid.dothome.co.kr/ReHome\images/'."{$fileimg['name']}");
+        // $re2 = move_uploaded_file("{$fileimg['tmp_name']}",'C:\Apache24\htdocs\php\ReHome\images/'."{$fileimg['name']}");
         if($re2){
             echo '성공';
             if($fileimg2['name'] != $_POST['oldimg2']){
@@ -26,7 +27,8 @@
                 }else {
                     echo "삭제되지 않음";
                 }
-                $re4 = move_uploaded_file("{$fileimg2['tmp_name']}",'C:\Apache24\htdocs\php\ReHome\images/'."{$fileimg2['name']}");
+                $re4 = move_uploaded_file("{$fileimg2['tmp_name']}",'http://cathkid.dothome.co.kr/ReHome\images/'."{$fileimg2['name']}");
+                // $re4 = move_uploaded_file("{$fileimg2['tmp_name']}",'C:\Apache24\htdocs\php\ReHome\images/'."{$fileimg2['name']}");
                 if($re4){
                     echo "성공";
                 }else {
@@ -61,5 +63,5 @@
         echo "실패";
         echo $query;
     }
-    header('Location:/php/ReHome/index.php');
+    header('Location:http://cathkid.dothome.co.kr/ReHome/index.php');
 ?>

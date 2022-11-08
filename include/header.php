@@ -22,6 +22,7 @@ function printList3(){
     }else{
         // error_reporting(E_ALL);
         // ini_set( "display_errors", 1 );
+        ini_set( "display_errors", 0 );     //https://jootc.com/p/201806211293  : php에러 메세지 출력 또는 숨기기
         setcookie('goods_view',$goodsNo,time()+86400,"/");
         // echo $goodsNo;
     };
@@ -58,12 +59,13 @@ function printList3(){
 
         //💥쿼리문 연결💥
         // $conn = mysqli_connect('localhost','root','3693','rehome');
-        // $conn = mysqli_connect('localhost','root','1234','rehome');  //이전 학원 컴퓨터랑 연결
+        // $conn = mysqli_connect('localhost','root','1234','rehome');  //이전 학원 컴퓨터 데이터베이스 비번
         $conn = mysqli_connect('localhost','cathkid','dothome##3693','cathkid');  //닷홈에 올리려고
         // $query = "select * from bestitem where id IN($arr[0])";
         
         
         $countTemp = count($temp);
+        // $countTemp = count($temp);
         $temp = array_reverse($temp);   //array_reverse() : 배열 반대로 
         // var_dump($temp);
         $temp = array_shift($temp);     //array_shift() : 제일 첫번째 배열을 삭제하고 리턴값으로 반환
@@ -91,8 +93,8 @@ function printList3(){
         $result = mysqli_query($conn, $query);
         // for($i=0; $i<=2; $i++){
             while($row = mysqli_fetch_array($result)){
-                echo "<li><a href='/php/ReHome/bestItem_detail.php?id={$row['id']}'>
-                <img src='/php/ReHome/images/{$row['imgsrc']}' alt=''>
+                echo "<li><a href='http://cathkid.dothome.co.kr/ReHome/bestItem_detail.php?id={$row['id']}'>
+                <img src='http://cathkid.dothome.co.kr/ReHome/images/{$row['imgsrc']}' alt=''>
                 </a></li>
                 ";
             }
@@ -107,20 +109,20 @@ function printList3(){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ReHome</title>
-    <link rel="icon" href="/php/ReHome/favicon.ico" type="image/png" />
+    <link rel="icon" href="http://cathkid.dothome.co.kr/ReHome/favicon.ico" type="image/png" />
     <!-- <link rel="icon" type="image/png" href="<?php echo G5_URL ?>/favicon/favicon-32x32.png" sizes="32x32" /> -->
-    <link rel="shortcut icon" href="/php/ReHome/favicon.ico" />
+    <link rel="shortcut icon" href="http://cathkid.dothome.co.kr/ReHome/favicon.ico" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/php/ReHome/css/reset.css">
-    <link rel="stylesheet" href="/php/ReHome/css/style4.css">
-    <link rel="stylesheet" href="/php/ReHome/css/style5.css">
-    <script defer src="/php/ReHome/js/script1.js"></script>
-    <script defer src="/php/ReHome/js/script2.js"></script>
-    <script defer src="/php/ReHome/js/script3.js"></script>
-    <script defer src="/php/ReHome/js/script4.js"></script>
-    <script defer src="/php/ReHome/js/script5.js"></script>
-    <script defer src="/php/ReHome/js/script6.js"></script>
-    <!-- <script defer src="/php/ReHome/js/script7.js"></script> -->
+    <link rel="stylesheet" href="http://cathkid.dothome.co.kr/ReHome/css/reset.css">
+    <link rel="stylesheet" href="http://cathkid.dothome.co.kr/ReHome/css/style4.css">
+    <link rel="stylesheet" href="http://cathkid.dothome.co.kr/ReHome/css/style5.css">
+    <script defer src="http://cathkid.dothome.co.kr/ReHome/js/script1.js"></script>
+    <script defer src="http://cathkid.dothome.co.kr/ReHome/js/script2.js"></script>
+    <script defer src="http://cathkid.dothome.co.kr/ReHome/js/script3.js"></script>
+    <script defer src="http://cathkid.dothome.co.kr/ReHome/js/script4.js"></script>
+    <script defer src="http://cathkid.dothome.co.kr/ReHome/js/script5.js"></script>
+    <script defer src="http://cathkid.dothome.co.kr/ReHome/js/script6.js"></script>
+    <!-- <script defer src="http://cathkid.dothome.co.kr/ReHome/js/script7.js"></script> -->
 </head>
 <body>
     <!-- 로딩화면 -->
@@ -130,32 +132,32 @@ function printList3(){
     <div id="wrap">
         <header>
             <div class="inner">
-                <h1><a href="/php/ReHome/index.php">
-                    <img src="/php/ReHome/images/wLogo.png" alt=""></a></h1>
+                <h1><a href="http://cathkid.dothome.co.kr/ReHome/index.php">
+                    <img src="http://cathkid.dothome.co.kr/ReHome/images/wLogo.png" alt=""></a></h1>
                 <ul>
                     <!-- isset이 여러개 적으면 '최근 본 상품'의 cookie가 형성 안돼서..! 하나로 다 넣어줘야함! -->
                     <?php
                         if(isset($_SESSION['userId'])){
                             if($_SESSION['userId'] == "admin"){
                                 echo "<li><span>{$_SESSION['userId']}님 환영합니다!</span></li>
-                                <li><a href='/php/ReHome/process/logout_process.php'>LOGOUT</a></li>
-                                <li><a href='/php/ReHome/item_create.php'>REGISTER</a></li>
-                                <li><a href='/php/ReHome/member/cart.php'>CART</a></li>";
+                                <li><a href='http://cathkid.dothome.co.kr/ReHome/process/logout_process.php'>LOGOUT</a></li>
+                                <li><a href='http://cathkid.dothome.co.kr/ReHome/item_create.php'>REGISTER</a></li>
+                                <li><a href='http://cathkid.dothome.co.kr/ReHome/member/cart.php'>CART</a></li>";
                             }else{
                                 echo "<li><span>{$_SESSION['userId']}님 환영합니다!</span></li>
-                                <li><a href='/php/ReHome/process/logout_process.php'>LOGOUT</a></li>
-                                <li><a href='/php/ReHome/member/cart.php'>CART</a></li>";
+                                <li><a href='http://cathkid.dothome.co.kr/ReHome/process/logout_process.php'>LOGOUT</a></li>
+                                <li><a href='http://cathkid.dothome.co.kr/ReHome/member/cart.php'>CART</a></li>";
                             }
                         }else{
-                            echo "<li><a href='/php/ReHome/member/login.php'>LOGIN</a></li>
-                            <li><a href='/php/ReHome/member/join.php'>JOIN</a></li>
-                            <li><a href='/php/ReHome/member/login.php' id='cartAlert'>CART</a></li>";
+                            echo "<li><a href='http://cathkid.dothome.co.kr/ReHome/member/login.php'>LOGIN</a></li>
+                            <li><a href='http://cathkid.dothome.co.kr/ReHome/member/join.php'>JOIN</a></li>
+                            <li><a href='http://cathkid.dothome.co.kr/ReHome/member/login.php' id='cartAlert'>CART</a></li>";
                         };
                     ?>         
-                    <form action="/php/ReHome/search/search.php" method="post">
+                    <form action="http://cathkid.dothome.co.kr/ReHome/search/search.php" method="post">
                         <div class='searchDiv'>
                             <input type='text' name='searchValue'>
-                            <button class='searchBtn'><img src='/php/ReHome/images/search-icon.png' alt=''></button>
+                            <button class='searchBtn'><img src='http://cathkid.dothome.co.kr/ReHome/images/search-icon.png' alt=''></button>
                         </div>
                     </form>
                 </ul>
@@ -170,10 +172,10 @@ function printList3(){
                             <div></div>
                             <div></div>
                         </div>
-                        <form action="/php/ReHome/search/search.php" method="post">
+                        <form action="http://cathkid.dothome.co.kr/ReHome/search/search.php" method="post">
                             <div class='searchInput'>
                                 <input type='text' name='searchValue'>
-                                <button class='searchBtn'><img src='/php/ReHome/images/search-icon.png' alt=''></button>
+                                <button class='searchBtn'><img src='http://cathkid.dothome.co.kr/ReHome/images/search-icon.png' alt=''></button>
                             </div>
                         </form>
                         <div class="logId">
@@ -183,18 +185,18 @@ function printList3(){
                                     if(isset($_SESSION['userId'])){
                                         if($_SESSION['userId'] == "admin"){
                                             echo "<li><span>{$_SESSION['userId']}님 환영합니다!</span></li>
-                                            <li><a href='/php/ReHome/process/logout_process.php'>LOGOUT</a></li>
-                                            <li><a href='/php/ReHome/item_create.php'>REGISTER</a></li>
-                                            <li><a href='/php/ReHome/member/cart.php'>CART</a></li>";
+                                            <li><a href='http://cathkid.dothome.co.kr/ReHome/process/logout_process.php'>LOGOUT</a></li>
+                                            <li><a href='http://cathkid.dothome.co.kr/ReHome/item_create.php'>REGISTER</a></li>
+                                            <li><a href='http://cathkid.dothome.co.kr/ReHome/member/cart.php'>CART</a></li>";
                                         }else{
                                             echo "<li><span>{$_SESSION['userId']}님 환영합니다!</span></li>
-                                            <li><a href='/php/ReHome/process/logout_process.php'>LOGOUT</a></li>
-                                            <li><a href='/php/ReHome/member/cart.php'>CART</a></li>";
+                                            <li><a href='http://cathkid.dothome.co.kr/ReHome/process/logout_process.php'>LOGOUT</a></li>
+                                            <li><a href='http://cathkid.dothome.co.kr/ReHome/member/cart.php'>CART</a></li>";
                                         }
                                     }else{
-                                        echo "<li><a href='/php/ReHome/member/login.php'>LOGIN</a></li>
-                                        <li><a href='/php/ReHome/member/join.php'>JOIN</a></li>
-                                        <li><a href='/php/ReHome/member/login.php' id='cartAlert'>CART</a></li>";
+                                        echo "<li><a href='http://cathkid.dothome.co.kr/ReHome/member/login.php'>LOGIN</a></li>
+                                        <li><a href='http://cathkid.dothome.co.kr/ReHome/member/join.php'>JOIN</a></li>
+                                        <li><a href='http://cathkid.dothome.co.kr/ReHome/member/login.php' id='cartAlert'>CART</a></li>";
                                     };
                                 ?>        
                             </ul>
@@ -205,30 +207,30 @@ function printList3(){
                                     <li onclick={onClickNav(event)}>ABOUT</li>
                                     <li onclick={onClickNav(event)}>PRODUCT</li>
                                     <li onclick={onClickNav(event)}>INTERIOR<br/>DESIGN</li>
-                                    <li><a href="/php/ReHome/etc/event.php">EVENT</a></li>
-                                    <li><a href="/php/ReHome/etc/csCenter.php">CS CENTER</a></li>
+                                    <li><a href="http://cathkid.dothome.co.kr/ReHome/etc/event.php">EVENT</a></li>
+                                    <li><a href="http://cathkid.dothome.co.kr/ReHome/etc/csCenter.php">CS CENTER</a></li>
                                 </ul>
                             </div>
                             <div>
                                 <ul class="navList">
                                     <li id="navAbout">
-                                        <p><a href="/php/ReHome/about/about_greetings.php">인삿말</a></p>
-                                        <p><a href="/php/ReHome/about/about_brandStory.php">브랜드소개</a></p>
+                                        <p><a href="http://cathkid.dothome.co.kr/ReHome/about/about_greetings.php">인삿말</a></p>
+                                        <p><a href="http://cathkid.dothome.co.kr/ReHome/about/about_brandStory.php">브랜드소개</a></p>
                                         <p></p>
                                         <p></p>
                                         <p></p>
                                     </li>
                                     <li id="navProduct">
-                                        <p><a href="/php/ReHome/product/product_table.php">TABLE</a></p>
-                                        <p><a href="/php/ReHome/product/product_chair.php">CHAIR</a></p>
-                                        <p><a href="/php/ReHome/product/product_bed.php">BED</a></p>
+                                        <p><a href="http://cathkid.dothome.co.kr/ReHome/product/product_table.php">TABLE</a></p>
+                                        <p><a href="http://cathkid.dothome.co.kr/ReHome/product/product_chair.php">CHAIR</a></p>
+                                        <p><a href="http://cathkid.dothome.co.kr/ReHome/product/product_bed.php">BED</a></p>
                                         <p></p>
                                         <p></p>
                                     </li>
                                     <li id="navInterior">
-                                        <p><a href="/php/ReHome/design/livingroom.php">Living Room</a></p>
-                                        <p><a href="/php/ReHome/design/bedroom.php">Bed Room</a></p>
-                                        <p><a href="/php/ReHome/design/kitchen.php">Kitchen</a></p>
+                                        <p><a href="http://cathkid.dothome.co.kr/ReHome/design/livingroom.php">Living Room</a></p>
+                                        <p><a href="http://cathkid.dothome.co.kr/ReHome/design/bedroom.php">Bed Room</a></p>
+                                        <p><a href="http://cathkid.dothome.co.kr/ReHome/design/kitchen.php">Kitchen</a></p>
                                         <p></p>
                                         <p></p>
                                     </li>
@@ -245,35 +247,35 @@ function printList3(){
                     <ul id="navBar">
                         <li class="menuList">
                             <h3>
-                                <a href="/php/ReHome/about/about_greetings.php">ABOUT</a>
+                                <a href="http://cathkid.dothome.co.kr/ReHome/about/about_greetings.php">ABOUT</a>
                             </h3>
                             <ul class="hideMenu">
-                                <li><a href="/php/ReHome/about/about_greetings.php">인삿말</a></li>
-                                <li><a href="/php/ReHome/about/about_brandStory.php">브랜드소개</a></li>
+                                <li><a href="http://cathkid.dothome.co.kr/ReHome/about/about_greetings.php">인삿말</a></li>
+                                <li><a href="http://cathkid.dothome.co.kr/ReHome/about/about_brandStory.php">브랜드소개</a></li>
                             </ul>
                         </li>
                         <li class="menuList">
                             <h3>
-                                <a href="/php/ReHome/product/product_table.php">PRODUCT</a>
+                                <a href="http://cathkid.dothome.co.kr/ReHome/product/product_table.php">PRODUCT</a>
                             </h3>
                             <ul class="hideMenu">
-                                <li><a href="/php/ReHome/product/product_table.php">TABLE</a></li>
-                                <li><a href="/php/ReHome/product/product_chair.php">CHAIR</a></li>
-                                <li><a href="/php/ReHome/product/product_bed.php">BED</a></li>
+                                <li><a href="http://cathkid.dothome.co.kr/ReHome/product/product_table.php">TABLE</a></li>
+                                <li><a href="http://cathkid.dothome.co.kr/ReHome/product/product_chair.php">CHAIR</a></li>
+                                <li><a href="http://cathkid.dothome.co.kr/ReHome/product/product_bed.php">BED</a></li>
                             </ul>
                         </li>
                         <li class="menuList">
                             <h3>
-                                <a href="/php/ReHome/design/livingroom.php">INTERIOR DESIGN</a>
+                                <a href="http://cathkid.dothome.co.kr/ReHome/design/livingroom.php">INTERIOR DESIGN</a>
                             </h3>
                             <ul class="hideMenu">
-                                <li><a href="/php/ReHome/design/livingroom.php">Living Room</a></li>
-                                <li><a href="/php/ReHome/design/bedroom.php">Bed Room</a></li>
-                                <li><a href="/php/ReHome/design/kitchen.php">Kitchen</a></li>
+                                <li><a href="http://cathkid.dothome.co.kr/ReHome/design/livingroom.php">Living Room</a></li>
+                                <li><a href="http://cathkid.dothome.co.kr/ReHome/design/bedroom.php">Bed Room</a></li>
+                                <li><a href="http://cathkid.dothome.co.kr/ReHome/design/kitchen.php">Kitchen</a></li>
                             </ul>
                         </li>
-                        <li class="menuList"><h3><a href="/php/ReHome/etc/event.php">EVENT</a></h3></li>
-                        <li class="menuList"><h3><a href="/php/ReHome/etc/csCenter.php">CS CENTER</a></h3></li>
+                        <li class="menuList"><h3><a href="http://cathkid.dothome.co.kr/ReHome/etc/event.php">EVENT</a></h3></li>
+                        <li class="menuList"><h3><a href="http://cathkid.dothome.co.kr/ReHome/etc/csCenter.php">CS CENTER</a></h3></li>
                     </ul>
                 </div>
             </nav>

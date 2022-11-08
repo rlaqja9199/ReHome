@@ -25,7 +25,7 @@
                         </div>
                         <div id="ceoImg">
                             <div>
-                                <img src="/php/ReHome/images/ceo.png" alt="">
+                                <img src="http://cathkid.dothome.co.kr/ReHome/images/ceo.png" alt="">
                             </div>
                             <p>주식회사 리홈 대표이사 · 회장</p>
                             <h3>김예진</h3>

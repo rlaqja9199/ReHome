@@ -13,7 +13,7 @@
             <article id="create_contents">
                 <div id="create">
                     <h2>EDIT</h2>
-                    <form action="/php/ReHome/process/item_edit_process.php" method="post" enctype="multipart/form-data">
+                    <form action="http://cathkid.dothome.co.kr/ReHome/process/item_edit_process.php" method="post" enctype="multipart/form-data">
                         <table>
                             <tr>
                                 <td>상품명</td>

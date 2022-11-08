@@ -21,7 +21,7 @@
             <table id="itemDetail">
                 <tr>
                     <td>
-                        <img src="/php/ReHome/images/<?=$row['imgsrc']?>" width="500">
+                        <img src="http://cathkid.dothome.co.kr/ReHome/images/<?=$row['imgsrc']?>" width="500">
                     </td>
                     <td>
                         <div id="detailText">
@@ -47,7 +47,7 @@
                                     <p id="totalPrice"><?=number_format($row['saleprice'])?>원</p>
                                 </li>
                                 <li>
-                                    <!-- <form action="/php/ReHome/item_edit.php" method="post"> -->
+                                    <!-- <form action="http://cathkid.dothome.co.kr/ReHome/item_edit.php" method="post"> -->
                                         <input type="text" value="<?=$row['id']?>" style="color: #888;">
                                     <!-- </form> -->
                                 </li>
@@ -70,7 +70,7 @@
                         </div>
                         <div id="buttons">
                             <a href="#"><button style="cursor: pointer;">관심상품</button></a>
-                            <form action="/php/ReHome/process/cart_create_process.php" method="post">
+                            <form action="http://cathkid.dothome.co.kr/ReHome/process/cart_create_process.php" method="post">
                                 <!-- <input type="text"> -->
                                 <input type="hidden" name="cTitle" value="<?=$row['name1']?>">
                                 <input type="hidden" name="id" value="<?=$row['id']?>">
@@ -87,7 +87,7 @@
                                     };
                                 ?>
                             </form>
-                            <form action="/php/ReHome/process/cart_create_process2.php" method="post">
+                            <form action="http://cathkid.dothome.co.kr/ReHome/process/cart_create_process2.php" method="post">
                                 <!-- <input type="text"> -->
                                 <input type="hidden" name="cTitle" value="<?=$row['name1']?>">
                                 <input type="hidden" name="id" value="<?=$row['id']?>">
@@ -109,11 +109,11 @@
                             <?php 
                                 if(isset($_SESSION['userId'])){
                                     if($_SESSION['userId'] == "admin"){
-                                        echo "<form action='/php/ReHome/item_edit.php' method='post'>
+                                        echo "<form action='http://cathkid.dothome.co.kr/ReHome/item_edit.php' method='post'>
                                             <input type='hidden' value={$_GET['id']} name='id'>
                                             <button type='submit' style='cursor: pointer;' class='editBtn'>수정</button>
                                         </form>
-                                        <form action='/php/ReHome/process/item_delete_process.php' method='post'>
+                                        <form action='http://cathkid.dothome.co.kr/ReHome/process/item_delete_process.php' method='post'>
                                             <input type='hidden' value={$_GET['id']} name='id'>
                                             <button type='submit' style='cursor: pointer;' class='delBtn'>삭제</button>
                                         </form>";
@@ -131,7 +131,7 @@
                 <li><a href="#deliveryInfor">배송정보</a></li>
                 <li><a href="#review_contents">리뷰</a></li>
             </ul>
-            <img src="/php/ReHome/images/<?=$row['imgsrc2']?>" width="100%" id="details">
+            <img src="http://cathkid.dothome.co.kr/ReHome/images/<?=$row['imgsrc2']?>" width="100%" id="details">
             <h3 id="deliveryInfor">배송정보 및 유의사항</h3>
             <p>DELIVERY INFORMATION & CAUTION</p>
             <table id="delivery">
@@ -181,6 +181,7 @@
             </table>
             <article id="review_contents">
             <?php
+                ini_set( "display_errors", 0 );
                 // $conn2 = mysqli_connect('localhost','root','3693','rehome');
                 // $conn2 = mysqli_connect('localhost','root','1234','rehome');
                 $conn = mysqli_connect('localhost','cathkid','dothome##3693','cathkid');
@@ -189,7 +190,7 @@
             ?>
                 <div id="review">
                     <h3>Review 작성하기</h3>
-                    <form action="/php/ReHome/review/review_process.php" method="post" enctype="multipart/form-data">
+                    <form action="http://cathkid.dothome.co.kr/ReHome/review/review_process_copy.php" method="post" enctype="multipart/form-data">
                         <textarea name="reviewdesc" id="reviewdesc" cols="30" rows="10" placeholder="상품후기 작성하기"></textarea>
                         <ul id="reviewBtns">
                             <li class="reviewPhoto">
@@ -226,6 +227,7 @@
                     <?php
                         function printList() {
                             global $result2;
+                            ini_set( "display_errors", 0 );
                             while($row2 = mysqli_fetch_array($result2)) {
                                 if($_SESSION['userId'] == $row2['userid'] || $_SESSION['userId'] == "admin"){
                                     echo "<ul>
@@ -233,9 +235,9 @@
                                             <li class='reviewId'>{$row2['userid']}<span>{$row2['date']}</span></li>
                                             <li><span>{$row2['reviewstar']}</span></li>
                                             <li>{$row2['reviewdesc']}</li>
-                                            <li><img src='/php/ReHome/images/{$row2['reviewimg']}'></li>
+                                            <li><img src='http://cathkid.dothome.co.kr/ReHome/images/{$row2['reviewimg']}'></li>
                                             <li>
-                                                <form action='/php/ReHome/review/review_delete_process.php' method='post'>                                  
+                                                <form action='http://cathkid.dothome.co.kr/ReHome/review/review_delete_process.php' method='post'>                                  
                                                 <input type='hidden' name='id' value='{$row2['id']}'>
                                                 <input type='hidden' id='itemId' name='itemId' value=''>
                                                 <button id='delReview' type='submit' onclick={qsIdSend()}>X</button>
@@ -248,7 +250,7 @@
                                                 <li class='reviewId'>{$row2['userid']}<span>{$row2['date']}</span></li>
                                                 <li><span>{$row2['reviewstar']}</span></li>
                                                 <li>{$row2['reviewdesc']}</li>
-                                                <li><img src='/php/ReHome/images/{$row2['reviewimg']}'></li>
+                                                <li><img src='http://cathkid.dothome.co.kr/ReHome/images/{$row2['reviewimg']}'></li>
                                             </ul>";
                                 }
                             }
@@ -280,7 +282,7 @@
     // }
     function cartLogin(){
         alert('로그인 후 이용해주세요.');
-        location.replace('/php/ReHome/member/login.php');
+        location.replace('http://cathkid.dothome.co.kr/ReHome/member/login.php');
     };
 
     //*리뷰 - '사진추가' label 글자수정

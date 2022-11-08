@@ -9,10 +9,10 @@
         $result = mysqli_query($conn, $query);
         while($row = mysqli_fetch_array($result)){
             $numRow = number_format($row['saleprice']);
-            echo "<li><a href='/php/ReHome/bestItem_detail.php?id={$row['id']}'>
-            <div class='hideImg'><img src='/php/ReHome/images/{$row['imgsrc']}'></div>
+            echo "<li><a href='http://cathkid.dothome.co.kr/ReHome/bestItem_detail.php?id={$row['id']}'>
+            <div class='hideImg'><img src='http://cathkid.dothome.co.kr/ReHome/images/{$row['imgsrc']}'></div>
             <div class='text'>
-                <h4>{$row['brand']}<span class='orderEx'><img src='/php/ReHome/images/orderExploding.png'></span></h4>
+                <h4>{$row['brand']}<span class='orderEx'><img src='http://cathkid.dothome.co.kr/ReHome/images/orderExploding.png'></span></h4>
                 <p>{$row['name1']}</p>
                 <p>{$row['name2']}</p>
                 <p class='price'>{$numRow}원<span>{$row['price']}</span></p>
@@ -29,8 +29,8 @@
     $query = "select * from bestreview limit 8";
     $result2 = mysqli_query($conn, $query);
         while($row = mysqli_fetch_array($result2)){
-            echo "<li><a href='/php/ReHome/product/product_table.php'>
-            <div class='hideImg'><img src='/php/ReHome/images/{$row['imgsrc']}'></div>
+            echo "<li><a href='http://cathkid.dothome.co.kr/ReHome/product/product_table.php'>
+            <div class='hideImg'><img src='http://cathkid.dothome.co.kr/ReHome/images/{$row['imgsrc']}'></div>
             <div class='reviewText'>
                 <h4>{$row['name']}</h4>
                 <p>{$row['review']}</p>
@@ -47,8 +47,8 @@
         $result = mysqli_query($conn, $query);
         while($row = mysqli_fetch_array($result)){
             $numRow = number_format($row['saleprice']);
-            echo "<li><a href='/php/ReHome/bestItem_detail.php?id={$row['id']}'>
-            <div class='hideImg'><img src='/php/ReHome/images/{$row['imgsrc']}'></div>
+            echo "<li><a href='http://cathkid.dothome.co.kr/ReHome/bestItem_detail.php?id={$row['id']}'>
+            <div class='hideImg'><img src='http://cathkid.dothome.co.kr/ReHome/images/{$row['imgsrc']}'></div>
             <div class='text'>
                 <h4>{$row['brand']}<span class='newItem'>NEW</span></h4>
                 <p>{$row['name1']}</p>
@@ -68,8 +68,8 @@
         $result = mysqli_query($conn, $query);
         while($row = mysqli_fetch_array($result)){
             $numRow = number_format($row['saleprice']);
-            echo "<li><a href='/php/ReHome/bestItem_detail.php?id={$row['id']}'>
-            <div class='hideImg'><img src='/php/ReHome/images/{$row['imgsrc']}'></div>
+            echo "<li><a href='http://cathkid.dothome.co.kr/ReHome/bestItem_detail.php?id={$row['id']}'>
+            <div class='hideImg'><img src='http://cathkid.dothome.co.kr/ReHome/images/{$row['imgsrc']}'></div>
             <div class='text'>
                 <h4>{$row['brand']}</h4>
                 <p>{$row['name1']}</p>
@@ -83,10 +83,10 @@
             <div id="slide_wrap">
                 <div id="slide_group_view">
                     <div id="slide_group">
-                        <img src="/php/ReHome/images/main4.jpg" alt="" class="slide_img">
-                        <img src="/php/ReHome/images/main2.png" alt="" class="slide_img">
-                        <img src="/php/ReHome/images/main3.jpg" alt="" class="slide_img">
-                        <img src="/php/ReHome/images/main1.png" alt="" class="slide_img">
+                        <img src="http://cathkid.dothome.co.kr/ReHome/images/main4.jpg" alt="" class="slide_img">
+                        <img src="http://cathkid.dothome.co.kr/ReHome/images/main2.png" alt="" class="slide_img">
+                        <img src="http://cathkid.dothome.co.kr/ReHome/images/main3.jpg" alt="" class="slide_img">
+                        <img src="http://cathkid.dothome.co.kr/ReHome/images/main1.png" alt="" class="slide_img">
                     </div>
                 </div>
                 <div id="slide_nav">

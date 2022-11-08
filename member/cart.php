@@ -52,13 +52,13 @@
                                         $numRow2 = number_format($row['price']);
                                         echo "<tr>
                                                 <td><input type='checkbox' class='checkBox' checked/></td>
-                                                <td><a href='/php/ReHome/bestitem_detail.php?id={$row['id']}'>{$row['title']}</a></td>
+                                                <td><a href='http://cathkid.dothome.co.kr/ReHome/bestItem_detail.php?id={$row['id']}'>{$row['title']}</a></td>
                                                 <td>{$row['amount']}</td>
                                                 <td>{$numRow}</td>
                                                 <td class='priceCheck'>{$numRow2}</td>
                                                 <td>{$row['delivery']}</td>
                                                 <td> 
-                                                <form action='/php/ReHome/process/cart_delete_process.php' method='post'>                                  
+                                                <form action='http://cathkid.dothome.co.kr/ReHome/process/cart_delete_process.php' method='post'>                                  
                                                     <input type='hidden' name='id' value='{$row['id']}'>
                                                     <input type='hidden' name='number' value='{$row['number']}'>
                                                     <button type='submit' id='deleteBtn'>삭제</button>
@@ -70,7 +70,7 @@
                                 printList()
                             ?>    
                         </table>
-                        <form action='/php/ReHome/process/cart_all_delete_process.php' method='post'>
+                        <form action='http://cathkid.dothome.co.kr/ReHome/process/cart_all_delete_process.php' method='post'>
                             <input type='hidden' name='userid' value="<?=$row['userid']?>">
                             <button type='submit' id="allDelete">전체삭제</button>
                         </form>
@@ -96,7 +96,7 @@
                         </div>
                     <div id="cart_btns">
                         <ul>
-                            <li><a href="/php/ReHome/index.php"><button>계속쇼핑</button></a></li>
+                            <li><a href="http://cathkid.dothome.co.kr/ReHome/index.php"><button>계속쇼핑</button></a></li>
                             <li><a href="#"><button type="submit">주문하기</button></a></li>
                         </ul>
                     </div>
@@ -114,7 +114,8 @@
             for(i=0; i<priceCheck.length; i++){
                 // console.log(priceCheck[i].innerText.replace(',',''));
                 // console.log(typeof(Number(priceCheck[i].innerText)));
-                pTotal = pTotal + Number(priceCheck[i].innerText.replace(',',''));
+                // pTotal = pTotal + Number(priceCheck[i].innerText.replace(',',''));
+                pTotal = pTotal + Number(priceCheck[i].innerText.replace(/,/ig,''));
                 // console.log(pTotal);
             }
             return pTotal;

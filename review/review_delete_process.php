@@ -10,5 +10,5 @@
     }else {
         echo "실패했습니다.";
     }
-    header("Location:/php/ReHome/bestItem_detail.php{$_POST['itemId']}");
+    header("Location:http://cathkid.dothome.co.kr/ReHome/bestItem_detail.php{$_POST['itemId']}");
 ?>

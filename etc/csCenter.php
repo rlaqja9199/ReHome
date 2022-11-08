@@ -68,21 +68,21 @@
                             <p>고객센터 안내 <span>1800-9977</span></p>
                         </div>
                         <div id="kakao">
-                            <a href=""><img src="/php/ReHome/images/ico_csKAKAO.png" alt=""></a>
+                            <a href=""><img src="http://cathkid.dothome.co.kr/ReHome/images/ico_csKAKAO.png" alt=""></a>
                             <a href=""><p>카카오톡 상담</p></a>
                         </div>
                     </div>
                     <ul id="csMenu">
                         <li><a href="">
-                            <img src="/php/ReHome/images/ico-customer01.png" alt="">
+                            <img src="http://cathkid.dothome.co.kr/ReHome/images/ico-customer01.png" alt="">
                             <p>간편문의</p></a>
                         </li>
                         <li><a href="">
-                            <img src="/php/ReHome/images/ico-customer02.png" alt="">
+                            <img src="http://cathkid.dothome.co.kr/ReHome/images/ico-customer02.png" alt="">
                             <p>FAQ</p></a>
                         </li>
                         <li><a href="">
-                            <img src="/php/ReHome/images/ico-customer05.png" alt="">
+                            <img src="http://cathkid.dothome.co.kr/ReHome/images/ico-customer05.png" alt="">
                             <p>이전설치 서비스</p></a>
                         </li>
                     </ul>

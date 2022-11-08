@@ -1298,7 +1298,7 @@ main #event > div:nth-child(2) #eventProduct ul li .eventText .price span {
   height: 100px;
   left: 0;
   top: 0;
-  cursor: pointer;
+  /* cursor: pointer; */
   opacity: 0.5;
 }
 

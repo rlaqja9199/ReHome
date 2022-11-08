@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="/php/ReHome/css/style.css">
+<link rel="stylesheet" href="http://cathkid.dothome.co.kr/ReHome/css/style.css">
 <?php
     $sMoney = ($_POST['cPrice']/100);
     // echo $ssMoney;
@@ -24,9 +24,9 @@
     setTimeout(() => {
         const cartConfirm = window.confirm('장바구니로 가시겠습니까?');
         if(cartConfirm){
-            location.replace('/php/ReHome/member/cart.php');
+            location.replace('http://cathkid.dothome.co.kr/ReHome/member/cart.php');
         }else{
-            location.replace('/php/ReHome/bestitem_detail.php?id={$_POST['id']}');
+            location.replace('http://cathkid.dothome.co.kr/ReHome/bestItem_detail.php?id={$_POST['id']}');
         }
     },500);
     </script>";
@@ -37,5 +37,5 @@
     }else{
         echo '실패';
     }
-    header("Location:/php/ReHome/bestitem_detail.php?id={$_POST['id']}");
+    header("Location:http://cathkid.dothome.co.kr/ReHome/bestItem_detail.php?id={$_POST['id']}");
 ?>

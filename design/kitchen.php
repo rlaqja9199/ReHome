@@ -1,9 +1,9 @@
-<?php include_once 'C:\Apache24\htdocs\php\ReHome\include\header.php' ?>
+<?php include_once '../include/header.php' ?>
     <section>
         <p class="innerRoad">HOME > DESIGN > KITCHEN</p>
         <article>
             <div class="designImg">
-                <img src="/php/ReHome/images/kitchen1.jpg" alt="">
+                <img src="http://cathkid.dothome.co.kr/ReHome/images/kitchen1.jpg" alt="">
                 <div>
                     <div class="designItem kitchen"></div>
                     <div class="designInfo kitchen">
@@ -38,7 +38,7 @@
                 </div>
             </div>
             <div class="designImg">
-                <img src="/php/ReHome/images/kitchen2.jpg" alt="">
+                <img src="http://cathkid.dothome.co.kr/ReHome/images/kitchen2.jpg" alt="">
                 <div>
                     <div class="designItem kitchen"></div>
                     <div class="designInfo kitchen">
@@ -57,7 +57,7 @@
                 </div>
             </div>
             <div class="designImg">
-                <img src="/php/ReHome/images/kitchen3.jpg" alt="">
+                <img src="http://cathkid.dothome.co.kr/ReHome/images/kitchen3.jpg" alt="">
                 <div>
                     <div class="designItem kitchen"></div>
                     <div class="designInfo kitchen">
@@ -95,4 +95,4 @@
         </article>
     </section>
 </main>
-<?php include_once 'C:\Apache24\htdocs\php\ReHome\include\footer.php' ?>
+<?php include_once '../include/footer.php' ?>

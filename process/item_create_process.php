@@ -3,8 +3,10 @@
     // file 타입으로 보내는게 두개니까 두개 만들어줘야함!!!
     $fileimg = $_FILES['imgsrc']; 
     $fileimg2 = $_FILES['imgsrc2']; 
-    move_uploaded_file($fileimg['tmp_name'],"C:\Apache24\htdocs\php\ReHome\images/".$fileimg['name']);
-    move_uploaded_file($fileimg2['tmp_name'],"C:\Apache24\htdocs\php\ReHome\images/".$fileimg2['name']);
+    move_uploaded_file($fileimg['tmp_name'],"http://cathkid.dothome.co.kr/ReHome\images/".$fileimg['name']);
+    move_uploaded_file($fileimg2['tmp_name'],"http://cathkid.dothome.co.kr/ReHome\images/".$fileimg2['name']);
+    // move_uploaded_file($fileimg['tmp_name'],"C:\Apache24\htdocs\php\ReHome\images/".$fileimg['name']);
+    // move_uploaded_file($fileimg2['tmp_name'],"C:\Apache24\htdocs\php\ReHome\images/".$fileimg2['name']);
 
     // $conn = mysqli_connect('localhost','root','3693','rehome');     
     // $conn = mysqli_connect('localhost','root','1234','rehome');     

@@ -13,5 +13,5 @@
     }else {
         echo "실패했습니다.";
     }
-    header('Location:/php/ReHome/member/cart.php');
+    header('Location:http://cathkid.dothome.co.kr/ReHome/member/cart.php');
 ?>
