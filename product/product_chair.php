@@ -2,9 +2,9 @@
 <?php
     // $brand = $row['brand'];
     function printList(){
-            $conn = mysqli_connect('localhost','root','3693','rehome');
+            // $conn = mysqli_connect('localhost','root','3693','rehome');
             // $conn = mysqli_connect('localhost','root','1234','rehome');
-            // $conn = mysqli_connect('localhost','cathkid','rornfl*#3693','cathkid');
+            $conn = mysqli_connect('localhost','cathkid','dothome##3693','cathkid');
             $query = "select * from bestitem where category='chair' or name1 Like'%의자%' or name1 Like '%소파%' or name1 Like '%체어%' order by id desc";
             $result = mysqli_query($conn, $query);
             while($row = mysqli_fetch_array($result)){

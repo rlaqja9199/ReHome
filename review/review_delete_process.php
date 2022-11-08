@@ -1,7 +1,7 @@
 <?php
-    $conn = mysqli_connect('localhost','root','3693','rehome');
+    // $conn = mysqli_connect('localhost','root','3693','rehome');
     // $conn = mysqli_connect('localhost','root','1234','rehome');
-    // $conn = mysqli_connect('localhost','cathkid','rornfl*#3693','cathkid');
+    $conn = mysqli_connect('localhost','cathkid','dothome##3693','cathkid');
     $query = "delete from review where id={$_POST['id']}";
     $result = mysqli_query($conn, $query);
     echo $_POST['id'];

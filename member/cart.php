@@ -7,9 +7,9 @@
     }
     $userid = $_SESSION['userId'];
     echo $userid;
-    $conn = mysqli_connect('localhost', 'root', '3693', 'rehome');
+    // $conn = mysqli_connect('localhost', 'root', '3693', 'rehome');
     // $conn = mysqli_connect('localhost', 'root', '1234', 'rehome');
-    // $conn = mysqli_connect('localhost','cathkid','rornfl*#3693','cathkid');
+    $conn = mysqli_connect('localhost','cathkid','dothome##3693','cathkid');
     $query = "select * from cart where userid='$userid'";
     echo $query;
     $result = mysqli_query($conn, $query);
@@ -60,7 +60,7 @@
                                                 <td> 
                                                 <form action='/php/ReHome/process/cart_delete_process.php' method='post'>                                  
                                                     <input type='hidden' name='id' value='{$row['id']}'>
-                                                    <input type='hidden' name='number' value='{$row['numbers']}'>
+                                                    <input type='hidden' name='number' value='{$row['number']}'>
                                                     <button type='submit' id='deleteBtn'>삭제</button>
                                                 </form>
                                             </td>
@@ -104,4 +104,23 @@
             </article>
         </section>
     </main>
+    <script>
+        const priceCheck= document.querySelectorAll('.priceCheck');
+        const totalP = document.querySelector('#totalP');
+        const subP = document.querySelector('#subP');
+        // console.log(priceCheck);
+        let pTotal=0;
+        function a(){
+            for(i=0; i<priceCheck.length; i++){
+                // console.log(priceCheck[i].innerText.replace(',',''));
+                // console.log(typeof(Number(priceCheck[i].innerText)));
+                pTotal = pTotal + Number(priceCheck[i].innerText.replace(',',''));
+                // console.log(pTotal);
+            }
+            return pTotal;
+        }
+        a();
+        totalP.innerHTML = `${pTotal.toLocaleString('ko-KR')}`;
+        subP.innerHTML = `${pTotal.toLocaleString('ko-KR')}`;
+    </script>
 <?php include_once '../include/footer.php' ?>

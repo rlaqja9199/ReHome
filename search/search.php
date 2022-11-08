@@ -1,9 +1,9 @@
 <?php include_once '../include/header.php' ?>
 <?php
     function printList7(){
-            $conn = mysqli_connect('localhost','root','3693','rehome');
+            // $conn = mysqli_connect('localhost','root','3693','rehome');
             // $conn = mysqli_connect('localhost','root','1234','rehome');
-            // $conn = mysqli_connect('localhost','cathkid','rornfl*#3693','cathkid');
+            $conn = mysqli_connect('localhost','cathkid','dothome##3693','cathkid');
             $query = "select * from bestitem where name1 Like'%{$_POST['searchValue']}%' order by id desc;";
             $result = mysqli_query($conn, $query);
             while($row = mysqli_fetch_array($result)){

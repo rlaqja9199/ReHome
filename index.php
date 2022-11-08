@@ -2,9 +2,9 @@
 <?php 
     //bestItem - best
     function printList(){
-        $conn = mysqli_connect('localhost','root','3693','rehome');
+        // $conn = mysqli_connect('localhost','root','3693','rehome');
         // $conn = mysqli_connect('localhost','root','1234','rehome');
-        // $conn = mysqli_connect('localhost','cathkid','rornfl*#3693','cathkid');
+        $conn = mysqli_connect('localhost','cathkid','dothome##3693','cathkid');
         $query = "select * from bestitem where category='bestItem' limit 9";
         $result = mysqli_query($conn, $query);
         while($row = mysqli_fetch_array($result)){
@@ -23,9 +23,9 @@
 
     //bestReview
     function printList2(){
-    $conn = mysqli_connect('localhost','root','3693','rehome');
+    // $conn = mysqli_connect('localhost','root','3693','rehome');
     // $conn = mysqli_connect('localhost','root','1234','rehome');
-    // $conn = mysqli_connect('localhost','cathkid','rornfl*#3693','cathkid');
+    $conn = mysqli_connect('localhost','cathkid','dothome##3693','cathkid');
     $query = "select * from bestreview limit 8";
     $result2 = mysqli_query($conn, $query);
         while($row = mysqli_fetch_array($result2)){
@@ -41,8 +41,8 @@
 
     //bestItem - new Arrival
     function printList4(){
-        $conn = mysqli_connect('localhost','root','3693','rehome');
-        // $conn = mysqli_connect('localhost','cathkid','rornfl*#3693','cathkid');
+        // $conn = mysqli_connect('localhost','root','3693','rehome');
+        $conn = mysqli_connect('localhost','cathkid','dothome##3693','cathkid');
         $query = "select * from bestitem where category='new' limit 9";
         $result = mysqli_query($conn, $query);
         while($row = mysqli_fetch_array($result)){
@@ -62,8 +62,8 @@
 
     //bestItem - sale
     function printList5(){
-        $conn = mysqli_connect('localhost','root','3693','rehome');
-        // $conn = mysqli_connect('localhost','cathkid','rornfl*#3693','cathkid');
+        // $conn = mysqli_connect('localhost','root','3693','rehome');
+        $conn = mysqli_connect('localhost','cathkid','dothome##3693','cathkid');
         $query = "select * from bestitem where category='sale' limit 9";
         $result = mysqli_query($conn, $query);
         while($row = mysqli_fetch_array($result)){

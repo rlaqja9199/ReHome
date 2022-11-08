@@ -38,9 +38,9 @@
         }
     }
 
-    $conn = mysqli_connect('localhost','root','3693','rehome');    
+    // $conn = mysqli_connect('localhost','root','3693','rehome');    
     // $conn = mysqli_connect('localhost','root','1234','rehome');    
-    // $conn = mysqli_connect('localhost','cathkid','rornfl*#3693','cathkid'); 
+    $conn = mysqli_connect('localhost','cathkid','dothome##3693','cathkid'); 
     $saleP = (int)$_POST['saleprice'];
     $query = "update bestitem
     set name1 = '{$_POST['name1']}',
@@ -61,5 +61,5 @@
         echo "실패";
         echo $query;
     }
-    // header('Location:/php/ReHome/index.php');
+    header('Location:/php/ReHome/index.php');
 ?>

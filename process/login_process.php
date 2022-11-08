@@ -2,9 +2,9 @@
     session_start();
     $userid = $_POST['userId'];
     $userpw = $_POST['userPw'];
-    $conn = mysqli_connect('localhost','root','3693','rehome');
+    // $conn = mysqli_connect('localhost','root','3693','rehome');
     // $conn = mysqli_connect('localhost','root','1234','rehome');
-    // $conn = mysqli_connect('localhost','cathkid','rornfl*#3693','cathkid');
+    $conn = mysqli_connect('localhost','cathkid','dothome##3693','cathkid');
     $query = "select * from member where id='{$userid}'";
     $result = mysqli_query($conn, $query);
 

@@ -1,8 +1,8 @@
 <?php include_once 'include/header.php' ?>
 <?php 
-    $conn = mysqli_connect('localhost','root','3693','rehome');
+    // $conn = mysqli_connect('localhost','root','3693','rehome');
     // $conn = mysqli_connect('localhost','root','1234','rehome');
-    // $conn = mysqli_connect('localhost','cathkid','rornfl*#3693','cathkid');
+    $conn = mysqli_connect('localhost','cathkid','dothome##3693','cathkid');
     $query = "select * from bestitem where id='{$_GET['id']}'"; 
     $result = mysqli_query($conn, $query);
     $row = mysqli_fetch_array($result);
@@ -181,8 +181,9 @@
             </table>
             <article id="review_contents">
             <?php
-                $conn2 = mysqli_connect('localhost','root','3693','rehome');
+                // $conn2 = mysqli_connect('localhost','root','3693','rehome');
                 // $conn2 = mysqli_connect('localhost','root','1234','rehome');
+                $conn = mysqli_connect('localhost','cathkid','dothome##3693','cathkid');
                 $query2 = "select * from review where itemid = {$row['id']} order by id desc;";
                 $result2 = mysqli_query($conn2,$query2);
             ?>

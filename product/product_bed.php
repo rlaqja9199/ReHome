@@ -1,9 +1,9 @@
 <?php include_once '../include/header.php' ?>
 <?php
     function printList(){
-            $conn = mysqli_connect('localhost','root','3693','rehome');
+            // $conn = mysqli_connect('localhost','root','3693','rehome');
             // $conn = mysqli_connect('localhost','root','1234','rehome');
-            // $conn = mysqli_connect('localhost','cathkid','rornfl*#3693','cathkid');
+            $conn = mysqli_connect('localhost','cathkid','dothome##3693','cathkid');
             $query = "select * from bestitem where category='bed' or name1 Like'%침대%' or name1 Like '%베드%' or name1 Like '%프레임%' or name1 Like '%매트리스%' order by id desc";
             $result = mysqli_query($conn, $query);
             while($row = mysqli_fetch_array($result)){

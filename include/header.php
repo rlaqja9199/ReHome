@@ -57,9 +57,9 @@ function printList3(){
 
 
         //💥쿼리문 연결💥
-        $conn = mysqli_connect('localhost','root','3693','rehome');
-        // $conn = mysqli_connect('localhost','root','1234','rehome');
-        // $conn = mysqli_connect('localhost','cathkid','rornfl*#3693','cathkid');  //닷홈에 올리려고
+        // $conn = mysqli_connect('localhost','root','3693','rehome');
+        // $conn = mysqli_connect('localhost','root','1234','rehome');  //이전 학원 컴퓨터랑 연결
+        $conn = mysqli_connect('localhost','cathkid','dothome##3693','cathkid');  //닷홈에 올리려고
         // $query = "select * from bestitem where id IN($arr[0])";
         
         
