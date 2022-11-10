@@ -115,7 +115,8 @@ function printList3(){
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="http://cathkid.dothome.co.kr/ReHome/css/reset.css">
     <link rel="stylesheet" href="http://cathkid.dothome.co.kr/ReHome/css/style4.css">
-    <link rel="stylesheet" href="http://cathkid.dothome.co.kr/ReHome/css/style5.css">
+    <!-- 모바일 반응형 나중에,,다시 -->
+    <!-- <link rel="stylesheet" href="http://cathkid.dothome.co.kr/ReHome/css/style5.css"> -->
     <script defer src="http://cathkid.dothome.co.kr/ReHome/js/script1.js"></script>
     <script defer src="http://cathkid.dothome.co.kr/ReHome/js/script2.js"></script>
     <script defer src="http://cathkid.dothome.co.kr/ReHome/js/script3.js"></script>
@@ -161,6 +162,7 @@ function printList3(){
                         </div>
                     </form>
                 </ul>
+                <!-- 모바일 반응형(메뉴) -->
                 <div class="menu">
                     <div class="burgerTab">
                         <div></div>
