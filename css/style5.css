@@ -1,0 +1,164 @@
+/* 반응형 */
+@media screen and (max-width: 768px) {
+    header {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 150px;
+        z-index: 1000;
+    }
+    header .inner>h1{
+        margin-left: 14px;
+    }
+    header .inner>ul{
+        display: none;
+    }
+    header .inner ul li:not(:last-child){
+        border: none;
+    }
+    header .menu{
+        display: block;
+    }
+    main nav{
+        display: none;
+    }
+    .menu .burgerTab {
+        height: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-right: 20px;
+    }
+    .menu .burgerTab div{
+        width: 30px;
+        height: 4px;
+        background-color: #fff;
+    }
+
+    .menu .mobileMenu{
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        right: 0;
+        top: 0;
+        background: #283345;
+        color: #fff;
+    }
+    .menu .mobileMenu .closeBtn {
+        width: 100%;
+        height: 10vh;
+        position: relative;
+    }
+    .menu .mobileMenu .closeBtn div{
+        width: 30px;
+        height: 4px;
+        background-color: #fff;
+        position: absolute;
+        right: 30px;
+        top: 50px;
+    }
+    .menu .mobileMenu .closeBtn div:nth-child(1){
+        transform: rotateZ(45deg); 
+    }
+    .menu .mobileMenu .closeBtn div:nth-child(2){
+        transform: rotateZ(-45deg);
+    }
+
+    .menu .mobileMenu .searchInput {
+        height: 5vh;
+        text-align: center;
+        padding-bottom: 30px;
+        width: 80%;
+        height: 40px;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .menu .mobileMenu .searchInput button{
+        position: absolute;
+        left: 5px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 40px;
+        height: 40px;
+        z-index: 1;
+    }
+    .menu .mobileMenu .searchInput button img {
+        width: 100%;
+    }
+    .menu .mobileMenu .searchInput input {
+        width: 100%;
+        height: 40px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding-left: 50px;
+        font-size: 18px;
+    }
+    .menu .mobileMenu .logId {
+        border-bottom: 1px solid #fff;
+        padding: 15px 0;
+        height: 25vh;
+    }
+    .menu .mobileMenu .logId ul {
+        font-size: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding-left: 22px;
+    }
+    .menu .mobileMenu .logId ul li{
+        height: 60px;
+        line-height: 60px;
+    }
+
+    .menu .mobileMenu .navDiv {
+        display: flex;
+    }
+    .menu .mobileMenu .navDiv div:nth-child(1){
+        width: 50%;
+        height: 60vh;
+        text-align: start;
+    }
+    .navDiv .mobileNav {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: flex-start;
+        padding-left: 30px;
+    }
+    .navDiv .mobileNav li{
+        font-size: 24px;
+        line-height: 24px;
+    }
+    .menu .mobileMenu .navDiv div:nth-child(2){
+        width: 50%;
+        height: 60vh;
+        background-color: #9da8b8dc;
+        color: #283345;
+    }
+    .navDiv .navList {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: flex-start;
+        padding-left: 30px;
+        position: relative;
+    }
+    .navDiv .navList li{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        font-size: 24px;
+        display: none;
+    }
+    header .inner ul #navAbout, header .inner ul #navProduct, header .inner ul #navInterior{
+        padding: 0;
+    }
+}
